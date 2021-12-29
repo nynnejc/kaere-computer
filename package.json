@@ -9,11 +9,17 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
     "next": "12.0.6",
     "next-optimized-images": "^2.6.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-markdown": "^7.1.1"
+    "react-markdown": "^7.1.1",
+    "svg-sprite-loader": "^6.0.11",
+    "webp-loader": "^0.6.0"
   },
   "devDependencies": {
     "@types/node": "16.11.11",
