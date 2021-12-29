@@ -1,6 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Image from "next/image";
-
 
 let Imagelist: any = [
   "ada.png",
@@ -16,7 +15,12 @@ let Imagelist: any = [
 
 function IndexImage() {
   return (
-    <Image src="/indeximg/kablam.gif" alt="Landscape picture" width={500} height={500} />
+    <img
+      src="/indeximg/kablam.gif"
+      alt="little red dot gif"
+      width={500}
+      height={500}
+    />
   );
 }
 
