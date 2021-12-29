@@ -231,7 +231,7 @@ export default function About() {
         </div>
       </main>
 
-      <footer className="bg-gradient-to-t from-lemon to-transparent py-40 w-full  fixed bottom-0">
+      <footer className="bg-gradient-to-t from-lemon py-40 w-full fixed bottom-0">
         <div className="container mx-auto" />
       </footer>
     </body>
