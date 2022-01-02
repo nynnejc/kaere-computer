@@ -10,7 +10,7 @@ export default function About() {
         <div className="grid sm:grid-cols-2 gap-4 ml-4">
           <div className="overflow-y-scroll">
             <h1>Resource Library</h1>
-            <h5>an ever envolving list to encourafe the new programmer</h5>
+            <h5>An envolving list to encourage the new programmer</h5>
 
             <div className="pt-16">
               <h3>Learn how to code</h3>
@@ -20,7 +20,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  FreeCodeCamp * <em>great first place to start. Excellent free courses in HTML, CSS, JavaScript.</em>
+                  FreeCodeCamp * <em>A good first place to start with beginner-friendly free courses in HTML, CSS, JavaScript.</em>
                 </a>
               </p>
 
@@ -40,7 +40,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  CSS-TRICKS * <em>Really helpful resource for CSS. Especially their flexbox overview.</em>
+                  CSS-TRICKS * <em>Helpful resource for CSS. Especially the flexbox guide.</em>
                 </a>
               </p>
 
@@ -60,7 +60,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  JavaScript.info * <em>Retro-looking yet super helpful intro to JS.</em>
+                  JavaScript.info * <em>Retro-looking but helpful resource on learning JS.</em>
                 </a>
               </p>
 
@@ -80,7 +80,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Glitch * <em>Fun and interactive intro courses.</em>
+                  Glitch * <em>Fun and interactive intro courses. Get started cooding direcyly in the glitch editor without having to mess around with the setup.</em>
                 </a>
               </p>
 
@@ -113,7 +113,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Increment Magazine * <em>Really beautiful and well-written articles on writing software.</em>
+                  Increment Magazine * <em>Visually pleasing and well-written articles on writing software.</em>
                 </a>
               </p>
 
@@ -146,7 +146,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Data Feminism; Catherine DIgnazio and Lauren F. Klein * <em>Delightful primer on ethical Data Science.</em>
+                  Data Feminism; Catherine DIgnazio and Lauren F. Klein * <em>Primer on ethical Data Science.</em>
                 </a>
               </p>
             </div>
