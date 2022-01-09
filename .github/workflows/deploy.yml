@@ -13,10 +13,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          
-      - run: npm i -g npm@latest
-      
-      - run: npm ci
+                
+      - uses: bahmutov/npm-install@v1
       
       - uses: actions/cache@v2
         with:
