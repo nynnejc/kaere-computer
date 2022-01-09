@@ -16,6 +16,13 @@ jobs:
       - run: npm ci
       - uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs
+          path: .next/cache
+          key: ${{ runner.os }}-next-cache-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-next-cache-${{ github.sha }}
+            ${{ runner.os }}-next-cache-
+      - uses: actions/cache@v2
+        with:
+          path: .next
+          key: ${{ runner.os }}-next-build-${{ github.sha }}
       - run: npm run build
