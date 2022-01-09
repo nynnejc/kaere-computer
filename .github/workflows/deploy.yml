@@ -9,9 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+          
       - run: npm i -g npm@latest
+      
       - run: npm ci
+      
+      - uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs
+          
       - run: npm run build
