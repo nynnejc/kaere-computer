@@ -8,9 +8,9 @@ export default function About() {
 
       <main className="flex-grow mx-auto flex flex-col z-50">
         <div className="grid sm:grid-cols-2 gap-4 ml-4">
-          <div className="overflow-y-scroll">
+          <div className="no-scrollbar overflow-y-scroll">
             <h1>Resource Library</h1>
-            <h5>An envolving list to encourage the new programmer</h5>
+            <h5>Envolving list to encourage the new programmer</h5>
 
             <div className="pt-16">
               <h3>Learn how to code</h3>
