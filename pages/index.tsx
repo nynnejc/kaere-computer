@@ -48,7 +48,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
       <Navbar />
       <main className="container mx-auto flex flex-col">
         <div className="grid sm:grid-cols-2 gap-4">
-          <div className="no-scrollbar overflow-y-scroll ml-4">
+          <div className="no-scrollbar overflow-y-scroll ml-6">
             <h1 className="text-barbie mb-8 font-bold font-mono">
               Kære Computer
             </h1>
