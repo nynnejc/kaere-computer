@@ -49,10 +49,12 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
       <main className="container mx-auto flex flex-col">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="no-scrollbar overflow-y-scroll ml-4">
-            <h1 className="text-barbie mb-8">Kære Computer</h1>
+            <h1 className="text-barbie mb-8 font-bold font-mono">
+              Kære Computer
+            </h1>
             <h4>Infrequent & earnest newsletter about technology</h4>
             <h5>
-              <div className="underline decoration">
+              <div className="underline decoration font-mono">
                 <a
                   href="https://buttondown.email/kaerecomputer"
                   target="_blank"
@@ -63,12 +65,14 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
               </div>
             </h5>
             <div className="mt-16">
-              <h3>Archive</h3>
+              <div className="font-bold">
+                <h3>Archive</h3>
+              </div>
               {posts.map((post, idx) => {
                 return (
                   <Link href={`/posts/${post.slug}`} key={idx} passHref={true}>
                     <a>
-                      <div className="w-max py-2">
+                      <div className="w-max py-2 font-mono">
                         <p className="text-2xl">{post.frontmatter.title}</p>
                       </div>
                     </a>
@@ -78,9 +82,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
             </div>
           </div>
 
-          <div className="no-scrollbar flex-1 overflow-y-scroll">
-            <IndexImage />
-          </div>
+          <div className="no-scrollbar flex-1 overflow-y-scroll"></div>
         </div>
       </main>
       <footer className=" text-right mr-4 md:mr-10 lg:mr-10">
