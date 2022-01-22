@@ -7,9 +7,11 @@ export default function About() {
       <Navbar />
 
       <main className="flex-grow mx-auto flex flex-col z-50">
-        <div className="grid sm:grid-cols-2 gap-4 ml-4">
+        <div className="grid sm:grid-cols-2 gap-4 ml-12 mr-8">
           <div className="no-scrollbar overflow-y-scroll">
-            <h1>Resource Library</h1>
+            <div className="font-mono mb-4">
+              <h1>Resource Library</h1>
+            </div>
             <h5>Envolving list to encourage the new programmer</h5>
 
             <div className="pt-16">
