@@ -9,7 +9,7 @@ export default function About() {
       <main className="flex-grow mx-10 sm:mx-14 md:mx-24 lg:mx-32">
         <div>
           <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl">
-            <div>
+            <div className="mb-14">
               Hi my name is Nynne, I&apos;m a Copenhagen based software
               developer, currently fulltime playing with LEGO bricks. For
               enquiries, contact me via{" "}
