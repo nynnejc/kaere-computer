@@ -12,7 +12,7 @@ const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
       <Navbar />
       <main className="container mx-8 px-3 py-4 md:px-0">
         <article>
-          <div className="hover:text-neon-pink font-mono">
+          <div className="hover:text-neon-pink font-mono  mt-80 ">
             <h1>{frontmatter.title}</h1>
           </div>
 
@@ -24,9 +24,6 @@ const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
           </div>
         </article>
       </main>
-      <footer className="text-right mr-4 md:mr-10 lg:mr-10">
-        <p>Nynne Just Christoffersen © {new Date().getFullYear()}</p>
-      </footer>
     </div>
   );
 };

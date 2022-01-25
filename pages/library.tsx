@@ -3,10 +3,10 @@ import Navbar from "../components/Navbar";
 
 export default function About() {
   return (
-    <body className="flex flex-col min-h-screen bg-banana">
+    <body className="flex flex-col min-h-screen bg-banana selection:bg-sea-green">
       <Navbar />
 
-      <main className="flex-grow mx-auto flex flex-col z-50">
+      <main className="flex-grow mt-80 mx-auto flex flex-col z-50">
         <div className="grid sm:grid-cols-2 gap-4 ml-12 mr-8">
           <div className="no-scrollbar overflow-y-scroll">
             <div className="font-mono mb-4">
@@ -22,7 +22,11 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  FreeCodeCamp * <em>A good first place to start with beginner-friendly free courses in HTML, CSS, JavaScript.</em>
+                  FreeCodeCamp *{" "}
+                  <em>
+                    A good first place to start with beginner-friendly free
+                    courses in HTML, CSS, JavaScript.
+                  </em>
                 </a>
               </p>
 
@@ -42,7 +46,10 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  CSS-TRICKS * <em>Helpful resource for CSS. Especially the flexbox guide.</em>
+                  CSS-TRICKS *{" "}
+                  <em>
+                    Helpful resource for CSS. Especially the flexbox guide.
+                  </em>
                 </a>
               </p>
 
@@ -52,7 +59,8 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  MDN Web Docs intro to JavaScript * <em>Great intro to JavaScript.</em>
+                  MDN Web Docs intro to JavaScript *{" "}
+                  <em>Great intro to JavaScript.</em>
                 </a>
               </p>
 
@@ -62,17 +70,8 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  JavaScript.info * <em>Retro-looking but helpful resource on learning JS.</em>
-                </a>
-              </p>
-
-              <p>
-                <a
-                  href="https://www.introduction-to-creative-coding.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Introduction to Creative Coding * <em>intro to the visual library p5JS.</em>
+                  JavaScript.info *{" "}
+                  <em>Retro-looking but helpful resource on learning JS.</em>
                 </a>
               </p>
 
@@ -82,7 +81,12 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Glitch * <em>Fun and interactive intro courses. Get started cooding direcyly in the glitch editor without having to mess around with the setup.</em>
+                  Glitch *{" "}
+                  <em>
+                    Fun and interactive intro courses. Get started cooding
+                    direcyly in the glitch editor without having to mess around
+                    with the setup.
+                  </em>
                 </a>
               </p>
 
@@ -95,6 +99,21 @@ export default function About() {
                   Codecademy * <em>Lots of free courses in HTML, CSS, JS.</em>
                 </a>
               </p>
+            </div>
+
+            <div className="pt-16">
+              <h3>Creative Coding</h3>
+
+              <p>
+                <a
+                  href="https://www.introduction-to-creative-coding.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Introduction to Creative Coding *{" "}
+                  <em>intro to the visual library p5JS.</em>
+                </a>
+              </p>
 
               <p>
                 <a
@@ -102,7 +121,30 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  The Coding Train * <em>Beginner-friendly youtube videos on creative coding.</em>
+                  The Coding Train *{" "}
+                  <em>Beginner-friendly youtube videos on creative coding.</em>
+                </a>
+              </p>
+
+              <p>
+                <a
+                  href="https://p5js.org/get-started/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  The p5.js official get started guide *{" "}
+                  <em>Tutorial and ressources.</em>
+                </a>
+              </p>
+
+              <p>
+                <a
+                  href="https://itp-xstory.github.io/p5js-shaders/#/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  p5.js shaders ressource *{" "}
+                  <em>an open-source guide to everything p5.js shaders.</em>
                 </a>
               </p>
             </div>
@@ -115,7 +157,11 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Increment Magazine * <em>Visually pleasing and well-written articles on writing software.</em>
+                  Increment Magazine *{" "}
+                  <em>
+                    Visually pleasing and well-written articles on writing
+                    software.
+                  </em>
                 </a>
               </p>
 
@@ -125,7 +171,11 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Rifke Sadleir&apos;s guide to creating bespoke portfolio websites * <em>A straightforward guide to building toyr first portfolio.</em>
+                  Rifke Sadleir&apos;s guide to creating bespoke portfolio
+                  websites *{" "}
+                  <em>
+                    A straightforward guide to building toyr first portfolio.
+                  </em>
                 </a>
               </p>
             </div>
@@ -139,7 +189,10 @@ export default function About() {
                   rel="noopener noreferrer"
                 >
                   CODE The Hidden Language of Computer Hardware and Software;
-                  Charles Petzold * <em>A classic and very in-depth book on how computers work.</em>
+                  Charles Petzold *{" "}
+                  <em>
+                    A classic and very in-depth book on how computers work.
+                  </em>
                 </a>
               </p>
               <p>
@@ -148,7 +201,8 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Data Feminism; Catherine DIgnazio and Lauren F. Klein * <em>Primer on ethical Data Science.</em>
+                  Data Feminism; Catherine DIgnazio and Lauren F. Klein *{" "}
+                  <em>Primer on ethical Data Science.</em>
                 </a>
               </p>
             </div>
