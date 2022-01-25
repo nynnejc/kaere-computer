@@ -25,7 +25,7 @@ export default function About() {
                 Softer Tech Conference
               </a>
               . The course is expecially made for beginners with little to no
-              experience with programming. If you'd like to dive deeper into
+              experience with programming. If you&apos;d like to dive deeper into
               p5.js, check out the Creative Coding section in my&nbsp;
               <Link href="/library">
                 <a>Resource Library</a>
