@@ -6,7 +6,7 @@ export default function About() {
     <body className="flex flex-col min-h-screen bg-lilac selection:bg-pink-300">
       <Navbar />
 
-      <main className="flex-grow mx-10 sm:mx-14 md:mx-24 lg:mx-32">
+      <main className="flex-grow  mt-80 mx-10 sm:mx-14 md:mx-24 lg:mx-32">
         <div>
           <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl">
             <div className="mb-14">
@@ -18,11 +18,11 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <em className="hover:text-barbie">email</em>
+                <em className="hover:text-blue-violet">email</em>
               </a>
               . I have a{" "}
               <a href="./">
-                <em className="hover:text-barbie">newsletter</em>
+                <em className="hover:text-neon-orange">newsletter</em>
               </a>
               . Find me on{" "}
               <a
@@ -30,7 +30,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <em className="hover:text-barbie">Github </em>
+                <em className="hover:text-lemon">Github </em>
               </a>
               or
               <a
@@ -38,7 +38,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <em className="hover:text-barbie"> Twitter</em>
+                <em className="hover:text-sea-green"> Twitter</em>
               </a>
             </div>
           </div>

@@ -44,9 +44,9 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
   };
 
   return (
-    <body className="h-screen bg-white">
+    <body className="h-screen bg-white selection:bg-lavender">
       <Navbar />
-      <main className="container mx-auto flex flex-col">
+      <main className="container mx-auto flex flex-col mt-80">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="no-scrollbar overflow-y-scroll ml-6">
             <h1 className="text-barbie mb-8 font-bold font-mono">
