@@ -12,7 +12,7 @@ const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
       <Navbar />
       <main className="container mx-8 px-3 py-4 md:px-0">
         <article>
-          <div className="hover:text-neon-pink font-mono  mt-80 ">
+          <div className="hover:text-neonpink font-mono  mt-80 ">
             <h1>{frontmatter.title}</h1>
           </div>
 

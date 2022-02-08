@@ -18,11 +18,11 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <em className="hover:text-blue-violet">email</em>
+                <em className="hover:text-neonpurple">email</em>
               </a>
               . I have a{" "}
               <a href="./">
-                <em className="hover:text-neon-orange">newsletter</em>
+                <em className="hover:text-neonorange">newsletter</em>
               </a>
               . Find me on{" "}
               <a
@@ -30,7 +30,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <em className="hover:text-lemon">Github </em>
+                <em className="hover:textlemon">Github </em>
               </a>
               or
               <a
@@ -38,7 +38,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <em className="hover:text-sea-green"> Twitter</em>
+                <em className="hover:text-seagreen"> Twitter</em>
               </a>
             </div>
           </div>

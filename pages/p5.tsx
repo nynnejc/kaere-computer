@@ -10,7 +10,7 @@ export default function About() {
       </div>
       <main className="flex-grow mt-80 mx-10 sm:mx-14 md:mx-24 lg:mx-32">
         <div>
-          <h1 className="hover:text-blue-violet">
+          <h1 className="hover:text-blueviolet">
             Softer Programming with P5.js
           </h1>
           <div className="py-10">
