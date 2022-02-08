@@ -4,7 +4,6 @@ import { NextPage } from "next";
 import Link from "next/link";
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import IndexImage from "../components/IndexImage";
 import Post from "../models/posts";
 
 export async function getStaticProps() {
@@ -68,7 +67,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
               <div className="font-bold">
                 <h3>Archive</h3>
               </div>
-              {posts.map((post, idx) => {
+              {posts.reverse().map((post, idx) => {
                 return (
                   <Link href={`/posts/${post.slug}`} key={idx} passHref={true}>
                     <a>
