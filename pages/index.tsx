@@ -16,7 +16,7 @@ export async function getStaticProps() {
     const frontmatter = { title: data.title };
 
     return {
-      slug: fileName.replace(".md", ""),
+      slug: fileName.replace(".md", ".html"),
       content: content,
       frontmatter,
     };

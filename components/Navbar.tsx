@@ -6,7 +6,7 @@ const Navbar = (): JSX.Element => {
     <header>
       <nav className="relative">
         <div className="absolute top-0 right-0 box-content h-32 w-32 pt-8 pr-8">
-          <Link href="/">
+          <Link href="/" as="/index.html">
             <a>
               <svg
                 width="130"
@@ -29,12 +29,12 @@ const Navbar = (): JSX.Element => {
 
           <ul className="text-right space-x-4 my-4 ">
             <li>
-              <Link href="/about">
+              <Link href="/about" as="/about.html">
                 <a className="text-2xl text-bold font-sans ">About</a>
               </Link>
             </li>
             <li>
-              <Link href="/library">
+              <Link href="/library" as="/library.html">
                 <a className="text-2xl text-bold font-sans ">
                   Resource Library
                 </a>
