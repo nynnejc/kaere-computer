@@ -27,7 +27,7 @@ const Navbar = (): JSX.Element => {
             </a>
           </Link>
 
-          <ul className="text-right space-x-4 my-4 ">
+          <ul className="text-right space-x-4 my-4">
             <li>
               <Link href="/about" as="/about.html">
                 <a className="text-2xl text-bold font-sans ">About</a>
@@ -36,13 +36,18 @@ const Navbar = (): JSX.Element => {
             <li>
               <Link href="/library" as="/library.html">
                 <a className="text-2xl text-bold font-sans ">
-                  Resource Library
+                  Library
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/index.html">
                 <a className="text-2xl text-bold font-sans ">Newsletter</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/p5.html">
+                <a className="text-2xl text-bold font-sans ">Tutorial</a>
               </Link>
             </li>
           </ul>

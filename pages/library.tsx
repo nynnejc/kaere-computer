@@ -106,6 +106,17 @@ export default function About() {
 
               <p>
                 <a
+                  href="https://happycoding.io/tutorials/p5js/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Happy Coding p5.js Tutorials *{" "}
+                  <em>Beginner-friendly and extensive p5.js tutorial page.</em>
+                </a>
+              </p>
+
+              <p>
+                <a
                   href="https://www.introduction-to-creative-coding.com/"
                   target="_blank"
                   rel="noopener noreferrer"
