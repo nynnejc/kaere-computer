@@ -54,7 +54,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                 > p5.js web editor </a>
-                and make sure to click 'sign up button'. Now you should see something like this:
+                and make sure to click sign up button. Now you should see something like this:
               </p>
             </div>
             <img
@@ -94,7 +94,7 @@ export default function About() {
 
             <div>
               <p>
-                Let's unpack what we are seeing here. We have two functions <b>setup()</b> and <b>draw()</b>.
+                Let us unpack what we are seeing here. We have two functions <b>setup()</b> and <b>draw()</b>.
               </p>
             </div>
 
