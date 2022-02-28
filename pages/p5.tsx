@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React from "react";
 import Navbar from "../components/Navbar";
@@ -47,14 +48,12 @@ export default function About() {
                 One of the htings that make p5.js beginner-friendly is that is
                 has a really nice coding editor that you can find right in your
                 browser.No need to install lots of things to your device.
-                Navigate to the{" "}
+                Navigate to the
                 <a
                   href="https://p5js.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                >
-                  p5.js web editor
-                </a>{" "}
+                > p5.js web editor </a>
                 and make sure to click 'sign up button'. Now you should see something like this:
               </p>
             </div>
@@ -105,10 +104,10 @@ export default function About() {
 
           <div className="my-20">
             <p>
-              Thanks for following along! If you&apos;d like to dive deeper into
-              p5.js, check out the Creative Coding section in my&nbsp;
+              Thanks for following along! If you would like to dive deeper into
+              p5.js, check out the Creative Coding section in my
               <Link href="/library">
-                <a>Resource Library</a>
+                <a> Resource Library</a>
               </Link>
               .
             </p>
