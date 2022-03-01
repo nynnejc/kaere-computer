@@ -45,7 +45,7 @@ export default function About() {
           </p>
           <div className="py-4">
             <p>
-              One of the things that make p5.js beginner-friendly is that is has
+              One of the things that make p5.js beginner-friendly is that it has
               a really nice coding editor that you can find right in your
               browser.No need to install lots of things to your device. Navigate
               to the
@@ -57,8 +57,15 @@ export default function About() {
                 {" "}
                 p5.js web editor{" "}
               </a>
-              and make sure to click sign up button. Now you should see
+              and make sure to click the sign up button. Now you should see
               something like this:
+            </p>
+          </div>
+
+          <div className="py-4">
+            <p>
+              A coding editor a little bit like the equivalent to MS.Word for
+              writing text, except this is where we write our code.
             </p>
           </div>
 
@@ -73,11 +80,11 @@ export default function About() {
 
           <div>
             <p>
-              As you can se we have a view with two different panes and above it
-              a play button with the triangle. In the left pane, you can write
-              code, and you will see it comes with a few lines of code already
-              written. In the right pane, you see something like a piece of
-              paper. Everything we draw will appear on it!
+              As you can see we have a view with two different panes and above
+              it a play button with the triangle. In the left pane, you can
+              write code, and you will see it comes with a few lines of code
+              already written. In the right pane, you see something like a piece
+              of paper. Everything we draw will appear on it!
             </p>
           </div>
 
@@ -101,6 +108,12 @@ export default function About() {
             </code>
           </div>
 
+          <div className="pt-6">
+            <div className="py-4">
+              <h3>Step 2: setup() and draw()</h3>
+            </div>
+          </div>
+
           <div className="py-4">
             <p>
               Let us unpack what we are seeing here. When you run the code you
@@ -112,7 +125,7 @@ export default function About() {
 
           <div className="pt-6">
             <div className="py-4">
-              <h3>Step 2: Make Your First Sketch</h3>
+              <h3>Step 3: Make Your First Sketch</h3>
             </div>
           </div>
 
@@ -125,15 +138,16 @@ export default function About() {
           <iframe
             id="p5.js web editor embed"
             title="p5.js web editor embed"
-            width="800"
+            width="700"
             height="600"
+            className="w-full aspect-auto"
             src="https://editor.p5js.org/"
           ></iframe>
 
           <div className="py-4">
             <p>
               This pane here above is actually a little embedded p5.js editor,
-              which also runs your code and shows it direcly on this site! Very
+              which also runs your code and shows it directly on this site! Very
               neat, but I want you to still go back to the other tab where you
               kept the standalone p5.js editor since it will save your work and
               make it easy to share.
@@ -182,10 +196,52 @@ export default function About() {
             <p>
               When you click run, you should see that you drew your very first
               drawing, a circle with three values.
-              <code>circle(x, y, d)</code>. With the parameters: <code>x</code> coordinate of
-              the centre of the circle, <code>y</code> coordinate of the centre of the
-              circle and d diameter of the circle.
+              <code>circle(x, y, d)</code>. With the parameters: <code>x</code>{" "}
+              coordinate of the center of the circle, <code>y</code> coordinate
+              of the center of the circle and d diameter of the circle.
             </p>
+          </div>
+
+          <div className="pt-6">
+            <div className="py-4">
+              <h3>Step 4: Inspiration and Examples</h3>
+            </div>
+          </div>
+
+          <div className="py-4">
+            <p>
+              It is very important to stress that many things have been done and
+              as a programmer using other things that work is the tea.
+              Predefined code things are usually grouped into what is called
+              libraries that can be imported into the editor. However, some
+              libraries are so used that they are by default imported, which
+              means that you can use them without importing a library.
+            </p>
+          </div>
+
+          <div className="py-4">
+            <p>
+              To find default library functions go to:
+              http://staging.p5js.org/learn/ and then scroll to “programming
+              topics”.
+            </p>
+          </div>
+
+          <div className="py-4">
+            <p>
+              Play around with these functions e.g. the color functions, by
+              adding the line fill(0) see what happens. Add line stroke(255,
+              100, 10) and see what happens.
+            </p>
+          </div>
+
+          <div className="py-4">
+            <img
+              src="https://d2w9rnfcy7mm78.cloudfront.net/15391529/original_3dc847ec7a57700ec057ad9ef983a025.png?1646163602?bc=0"
+              alt="p5.js web editor"
+              width={500}
+              height={500}
+            />
           </div>
 
           <div className="my-20">
