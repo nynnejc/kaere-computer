@@ -39,7 +39,7 @@ export default function About() {
                 rel="noopener noreferrer"
               >
                 <em className="hover:text-seagreen"> Twitter</em>
-              </a>
+              </a>.
             </div>
           </div>
         </div>
