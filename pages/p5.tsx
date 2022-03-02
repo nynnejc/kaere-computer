@@ -123,6 +123,50 @@ export default function About() {
             </p>
           </div>
 
+          <div className="py-4">
+            <p>
+              A <b>Function</b> is a block of code that can be called again and
+              again because it has a name.
+            </p>
+          </div>
+
+          <div className="py-4">
+            <p>
+              In the first example we have a function called <b>setup()</b>.
+              This function is called once when the program starts and is used
+              to define the screen size and background color. A little bit like
+              the paper you draw on. If you want to learn more about it, you can
+              read about this function in the p5.js documentation
+              <a
+                href="https://p5js.org/reference/#/p5/setup"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                here
+              </a>
+              .
+            </p>
+          </div>
+
+          <div className="py-4">
+            <p>
+              The <b>draw()</b> function is always called right after the
+              setup() function and this is where you define code that runt until
+              the program is stopped again. There can only be one deaw()
+              function for each sketch, and the draq() function must exist on
+              order for the code to run continously. Documentation for <a
+                href="https://p5js.org/reference/#/p5/setup"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                draw()
+              </a>
+              .
+            </p>
+          </div>
+
           <div className="pt-6">
             <div className="py-4">
               <h3>Step 3: Make Your First Sketch</h3>
@@ -210,8 +254,6 @@ export default function About() {
 
           <div className="py-4">
             <p>
-              It is very important to stress that many things have been done and
-              as a programmer using other things that work is the tea.
               Predefined code things are usually grouped into what is called
               libraries that can be imported into the editor. However, some
               libraries are so used that they are by default imported, which
