@@ -46,7 +46,7 @@ const Navbar = (): JSX.Element => {
               </Link>
             </li>
             <li>
-              <Link href="/p5.html">
+              <Link href="/tutorial.html">
                 <a className="text-2xl text-bold font-sans ">Tutorial</a>
               </Link>
             </li>
