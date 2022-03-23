@@ -67,7 +67,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
               <div className="font-bold">
                 <h3>Archive</h3>
               </div>
-              {posts.reverse().map((post, idx) => {
+              {posts.slice(0).reverse().map((post, idx) => {
                 return (
                   <Link href={`/posts/${post.slug}`} key={idx} passHref={true}>
                     <a>
