@@ -43,7 +43,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
   };
 
   return (
-    <body className="h-screen bg-white selection:bg-lavender">
+    <div className="h-screen bg-white selection:bg-lavender">
       <Navbar />
       <main className="container mx-auto flex flex-col mt-80">
         <div className="grid sm:grid-cols-2 gap-4">
@@ -51,7 +51,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
             <h1 className="text-barbie mb-8 font-bold font-mono">
               Kære Computer
             </h1>
-            <h4>Infrequent & earnest newsletter about technology</h4>
+            <h4>Infrequent & honest newsletter about technology</h4>
             <h5>
               <div className="underline decoration font-mono">
                 <Link
@@ -92,7 +92,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
       <footer className=" text-right mr-4 md:mr-10 lg:mr-10">
         <div>Nynne Just Christoffersen © {new Date().getFullYear()}</div>
       </footer>
-    </body>
+    </div>
   );
 };
 
