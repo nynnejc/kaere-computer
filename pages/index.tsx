@@ -54,30 +54,35 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
             <h4>Infrequent & earnest newsletter about technology</h4>
             <h5>
               <div className="underline decoration font-mono">
-                <a
+                <Link
                   href="https://buttondown.email/kaerecomputer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Sign-up link
-                </a>
+                </Link>
               </div>
             </h5>
             <div className="mt-16">
               <div className="font-bold">
                 <h3>Archive</h3>
               </div>
-              {posts.slice(0).reverse().map((post, idx) => {
-                return (
-                  <Link href={`/posts/${post.slug}`} key={idx} passHref={true}>
-                    <a>
+              {posts
+                .slice(0)
+                .reverse()
+                .map((post, idx) => {
+                  return (
+                    <Link
+                      href={`/posts/${post.slug}`}
+                      key={idx}
+                      passHref={true}
+                    >
                       <div className="w-max py-2 font-mono">
-                        <p className="text-2xl">{post.frontmatter.title}</p>
+                        <div className="text-2xl">{post.frontmatter.title}</div>
                       </div>
-                    </a>
-                  </Link>
-                );
-              })}
+                    </Link>
+                  );
+                })}
             </div>
           </div>
 
@@ -85,7 +90,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
         </div>
       </main>
       <footer className=" text-right mr-4 md:mr-10 lg:mr-10">
-        <p>Nynne Just Christoffersen © {new Date().getFullYear()}</p>
+        <div>Nynne Just Christoffersen © {new Date().getFullYear()}</div>
       </footer>
     </body>
   );

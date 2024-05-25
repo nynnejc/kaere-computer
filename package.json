@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
+    "@types/react-dom": "^18.3.0",
     "image-trace-loader": "^1.0.2",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^10.0.0",
@@ -18,8 +19,8 @@
     "lqip-loader": "^2.2.1",
     "next": "14.1.1",
     "next-compose-plugins": "^2.2.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "^18",
+    "react-dom": "^18",
     "react-markdown": "^7.1.1",
     "responsive-loader": "^2.3.0",
     "semver-regex": "^4.0.3",
