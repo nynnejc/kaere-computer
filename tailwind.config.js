@@ -1,3 +1,5 @@
+const { redirect } = require("next/dist/server/api-utils");
+
 module.exports = {
   mode: "jit",
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
@@ -10,7 +12,13 @@ module.exports = {
         },
       }),
       colors: {
-        lilac: "#e5d5e2",
+        lilac_kc: "#F2EAFF",
+        pink_kc: "#FFB2D9",
+        powder_kc: "#FCE3E3",
+        yellow_kc: "#F7F4C6",
+        red_kc: "#FF1A66",
+        pistacio_kc: "#F2FFEA",
+        black: "#000000",
         neon: "#74ff58",
         electricblue: "#4726ff",
         barbie: "#ffa6d9",
@@ -29,6 +37,9 @@ module.exports = {
         slate: "#1b3644",
         violetblack: "#06004f",
         mineral: "#b5d1cc",
+      },
+      cursor: {
+        
       },
     },
   },

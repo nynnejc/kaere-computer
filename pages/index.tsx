@@ -36,24 +36,18 @@ type HomeProps = {
 const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
   const [active, setActive] = useState(false);
 
-  const handleChangeActive = () => {
-    setActive((previousStar) => {
-      return !previousStar;
-    });
-  };
-
   return (
-    <div className="h-screen bg-white selection:bg-lavender">
+    <div className="flex flex-col min-h-screen bg-lilac_kc selection:bg-pink-300">
       <Navbar />
-      <main className="container mx-auto flex flex-col mt-80">
+      <main className="flex-grow mt-2">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="no-scrollbar overflow-y-scroll ml-6">
-            <h1 className="text-barbie mb-8 font-bold font-mono">
+            <h1 className="mb-8 font-bold font-mono">
               Kære Computer
             </h1>
             <h4>Infrequent & honest newsletter about technology</h4>
             <h5>
-              <div className="underline decoration font-mono">
+              <div className="underline decoration font-mono text-red_kc hover:linkunderline">
                 <Link
                   href="https://buttondown.email/kaerecomputer"
                   target="_blank"
@@ -67,6 +61,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
               <div className="font-bold">
                 <h3>Archive</h3>
               </div>
+
               {posts
                 .slice(0)
                 .reverse()
@@ -77,7 +72,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
                       key={idx}
                       passHref={true}
                     >
-                      <div className="w-max py-2 font-mono">
+                      <div className="w-max py-2 font-mono text-red_kc hover:text-bold">
                         <div className="text-2xl">{post.frontmatter.title}</div>
                       </div>
                     </Link>

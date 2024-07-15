@@ -1,64 +1,33 @@
 import Link from "next/link";
 import React from "react";
+import CuteComputer from "./CuteComputer";
 
 const Navbar = (): JSX.Element => {
   return (
     <header>
-      <nav className="relative">
-        <div className="absolute top-0 right-0 box-content h-32 w-32 pt-8 pr-8">
-          <Link href="/" as="/index.html">
-            <svg
-              width="130"
-              height="130"
-              viewBox="0 0 78 78"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M39 0a39 39,0 0 0,0 78a39 39,0 0 0,0 -78m0 1a19 19,0 0 1,0 38a19 19,0 0 0,0 38a38 38,0 0 1,0 -76m0 13.5a5 5,0 0 0,0 10a5 5,0 0 0,0 -10m0 39a5 5,0 0 1,0 10a5 5,0 0 1,0 -10" />
-              <animate
-                attributeName="fill"
-                attributeType="XML"
-                from="blue"
-                to="red"
-                dur="20s"
-                repeatCount="indefinite"
-              />
-            </svg>
-          </Link>
+      <nav className="relative flex flex-wrap">
+        <div className="absolute top-2 right-6">
+          <ul className="text-left">
+            <li className="w-full mb-8">
+              <CuteComputer />
+            </li>
 
-          <ul className="text-right space-x-4 my-4">
-            <li>
-              <Link
-                href="/about"
-                as="/about.html"
-                className="text-2xl text-bold font-sans "
-              >
-                About
+            <li className="w-full mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
+              <Link href="/index.html">NEWSLETTER</Link>
+            </li>
+            <li className="w-full mb-1 pl-1 bg-white border border-black text-2xl font-sans hover:navhover">
+              <Link href="/about" as="/about.html">
+                ABOUT
               </Link>
             </li>
-            <li>
-              <Link
-                href="/library"
-                as="/library.html"
-                className="text-2xl text-bold font-sans "
-              >
-                Library
+            <li className="w-full mb-1 pl-1 bg-white border border-black text-2xl font-sans hover:navhover">
+              <Link href="/library" as="/library.html">
+                LIBRARY
               </Link>
             </li>
-            <li>
-              <Link
-                href="/index.html"
-                className="text-2xl text-bold font-sans "
-              >
-                Newsletter
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/tutorial.html"
-                className="text-2xl text-bold font-sans "
-              >
-                Tutorial
-              </Link>
+
+            <li className="w-full mb-1 pl-1 bg-white border border-black text-2xl font-sans hover:navhover">
+              <Link href="/tutorial.html">TUTORIAL</Link>
             </li>
           </ul>
         </div>

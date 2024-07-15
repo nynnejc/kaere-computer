@@ -11,9 +11,6 @@ body {
 }
 
 @layer base {
-  a {
-    @apply text-electricblue hover:text-neon;
-  }
   p {
     @apply text-base;
   }
@@ -52,6 +49,17 @@ main {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  .navhover {
+    background-color: #FFB2D9;
+    box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 60%); 
+    position: relative;
+  }
+
+  .linkunderline {
+    text-decoration: none;
+    color: rgb(255 26 102);
   }
 
   .no-scrollbar {
