@@ -1,10 +1,11 @@
 import { AppProps } from "next/app";
 import * as React from "react";
 import "../styles/globals.css";
+import StarCursor from "../components/StarCursor";
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
-      <Component {...pageProps} />
+      <><StarCursor /><Component {...pageProps} /></>
    
   );
 };
