@@ -6,8 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-arial);
 }
 
 @layer base {
@@ -35,20 +34,68 @@ body {
   }
 }
 
+@font-face {
+  font-family: 'Necto-Mono';
+  src: url('/fonts/Necto-Mono.woff2') format('woff2'),
+       url('/fonts/Necto-Mono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dauphine-Regular';
+  src: url('/fonts/Dauphine-Regular.woff2') format('woff2'),
+       url('/fonts/Dauphine-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: 'Necto-Mono', sans-serif; /* Default font */
 }
 
 main {
   flex: 1; /* Or flex-grow: 1;*/
+}
+h1 {
+  font-family: var(--font-Necto-Mono);
+}
+
+h2 {
+  font-family: var(--font-Dauphine-Regular);
+}
+
+h3 {
+  font-family: var(--font-Dauphine-Regular);
 }
 
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  .custom-font-necto-h1 {
+    font-family: 'Necto-Mono', sans-serif;
+    font-size: 57em;
+  }
+
+  .custom-font-necto-h3 {
+    font-family: 'Necto-Mono', sans-serif;
+    font-size: 21em;
+  }
+
+  .custom-font-dauphine-h4 {
+    font-family: 'Dauphine-Regular', sans-serif;
+    font-size: 30em;
+  }
+  
+  .custom-font-dauphine {
+    font-family: 'Dauphine-Regular', sans-serif;
   }
 
   .navhover {

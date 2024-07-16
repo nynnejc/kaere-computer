@@ -68,7 +68,7 @@ const StarCursor: React.FC = () => {
                     if (!starv.current[c]) {
                         star.current[c].style.left = (starx.current[c] = x.current) + "px";
                         star.current[c].style.top = (stary.current[c] = y.current + 1) + "px";
-                        star.current[c].style.clip = "rect(0px, 10px, 10px, 0px)"; // Larger clip area
+                        star.current[c].style.clip = "rect(0px, 5px, 5px, 0px)";
                         (star.current[c].childNodes[0] as HTMLElement).style.backgroundColor = (star.current[c].childNodes[1] as HTMLElement).style.backgroundColor = (colour === "random") ? newColour() : colour;
                         star.current[c].style.visibility = "visible";
                         starv.current[c] = 50;
@@ -84,7 +84,7 @@ const StarCursor: React.FC = () => {
         };
 
         const updateStar = (i: number) => {
-            if (--starv.current[i] === 25) star.current[i].style.clip = "rect(1px, 9px, 9px, 1px)"; // Adjusted clip area
+            if (--starv.current[i] === 25) star.current[i].style.clip = "rect(1px, 4px, 4px, 1px)";
             if (starv.current[i]) {
                 stary.current[i] += 1 + Math.random() * 3;
                 starx.current[i] += (i % 5 - 2) / 5;
@@ -100,8 +100,8 @@ const StarCursor: React.FC = () => {
                 tinyv.current[i] = 50;
                 tiny.current[i].style.top = (tinyy.current[i] = stary.current[i]) + "px";
                 tiny.current[i].style.left = (tinyx.current[i] = starx.current[i]) + "px";
-                tiny.current[i].style.width = "4px"; // Larger tiny star size
-                tiny.current[i].style.height = "4px"; // Larger tiny star size
+                tiny.current[i].style.width = "2px";
+                tiny.current[i].style.height = "2px";
                 tiny.current[i].style.backgroundColor = (star.current[i].childNodes[0] as HTMLElement).style.backgroundColor;
                 star.current[i].style.visibility = "hidden";
                 tiny.current[i].style.visibility = "visible";
@@ -110,8 +110,8 @@ const StarCursor: React.FC = () => {
 
         const updateTiny = (i: number) => {
             if (--tinyv.current[i] === 25) {
-                tiny.current[i].style.width = "2px"; // Adjusted tiny size
-                tiny.current[i].style.height = "2px"; // Adjusted tiny size
+                tiny.current[i].style.width = "1px";
+                tiny.current[i].style.height = "1px";
             }
             if (tinyv.current[i]) {
                 tinyy.current[i] += 1 + Math.random() * 3;
@@ -153,18 +153,18 @@ const StarCursor: React.FC = () => {
                 starv.current[i] = 0;
                 tinyv.current[i] = 0;
 
-                const rats2 = createDiv(10, 10); // Larger star size
+                const rats2 = createDiv(5, 5);
                 rats2.style.backgroundColor = "transparent";
                 rats2.style.visibility = "hidden";
                 rats2.style.zIndex = "999";
-                const rlef = createDiv(1, 10); // Adjusted star size
-                const rdow = createDiv(10, 1); // Adjusted star size
+                const rlef = createDiv(1, 5);
+                const rdow = createDiv(5, 1);
                 rats2.appendChild(rlef);
                 rats2.appendChild(rdow);
-                rlef.style.top = "5px"; // Adjusted star size
-                rlef.style.left = "0px"; // Adjusted star size
-                rdow.style.top = "0px"; // Adjusted star size
-                rdow.style.left = "5px"; // Adjusted star size
+                rlef.style.top = "2px";
+                rlef.style.left = "0px";
+                rdow.style.top = "0px";
+                rdow.style.left = "2px";
                 document.body.appendChild(star.current[i] = rats2);
             }
 

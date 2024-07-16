@@ -42,10 +42,10 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
       <main className="flex-grow mt-2">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="no-scrollbar overflow-y-scroll ml-6">
-            <h1 className="mb-8 font-bold font-mono">
+            <h1 className="mb-8">
               Kære Computer
             </h1>
-            <h4>Infrequent & honest newsletter about technology</h4>
+            <h4 className="custom-font-dauphine">Infrequent & honest newsletter about technology</h4>
             <h5>
               <div className="underline decoration font-mono text-red_kc hover:linkunderline">
                 <Link
@@ -53,7 +53,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Sign-up link
+                  Sign up
                 </Link>
               </div>
             </h5>
@@ -72,7 +72,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
                       key={idx}
                       passHref={true}
                     >
-                      <div className="w-max py-2 font-mono text-red_kc hover:text-bold">
+                      <div className="w-max py-2 font-mono text-red_kc hover:linkunderline">
                         <div className="text-2xl">{post.frontmatter.title}</div>
                       </div>
                     </Link>
