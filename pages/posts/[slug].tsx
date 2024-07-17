@@ -8,21 +8,27 @@ import Post from "../../models/posts";
 
 const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen selection:bg-pink-300 mb-8 ml-6">
       <Navbar />
-      <main className="container mx-8 px-3 py-4 md:px-0">
-        <article>
-          <div className="hover:text-neonpink font-mono  mt-80 ">
-            <h1>{frontmatter.title}</h1>
-          </div>
+      <h1 className="">Kære Computer</h1>
 
-          <div className="pt-16 pb-8">
-            <p>{frontmatter.date}</p>
+      <main className="flex-grow mt-2 py-2">
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="no-scrollbar overflow-y-scroll">
+            <article>
+              <div className="custom-font-dauphine">
+                <h4 className="hover:text-red_kc">
+                  {frontmatter.title} — {frontmatter.date}
+                </h4>
+              </div>
+
+              <div className="mt-10 ml-24">
+                <ReactMarkdown>{content}</ReactMarkdown>
+              </div>
+            </article>
           </div>
-          <div>
-            <ReactMarkdown>{content}</ReactMarkdown>
-          </div>
-        </article>
+          <div className="no-scrollbar flex-1 overflow-y-scroll"></div>
+        </div>
       </main>
     </div>
   );
