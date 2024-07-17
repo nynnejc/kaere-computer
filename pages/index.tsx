@@ -57,9 +57,9 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
                 </Link>
               </div>
             </h5>
-            <div className="mt-16">
+            <div className="mt-16 ml-24">
               <div className="font-bold">
-                <h3>Archive</h3>
+                <h3>PREVIOUS ENTRIES</h3>
               </div>
 
               {posts
