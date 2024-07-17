@@ -35,16 +35,16 @@ export default function About() {
             >
               Github{" "}
             </a>
-            or{" "}
+            or in{" "}
             <a
-              href="https://twitter.com/nynnest"
+              href="https://helvede.net/@nynne"
               target="_blank"
               rel="noopener noreferrer"
               className="underline decoration font-mono text-red_kc hover:linkunderline"
             >
-              Twitter
+              hell
             </a>
-            .
+            !
           </h1>
         </div>
       </main>
