@@ -11,7 +11,6 @@ export async function getStaticProps() {
 
   const posts: Array<Post> = files.map((fileName) => {
     const file = fs.readFileSync(`data/posts/${fileName}`).toString();
-
     const { data, content } = matter(file);
     const frontmatter = { title: data.title };
 
@@ -37,54 +36,44 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
   const [active, setActive] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen bg-lilac_kc selection:bg-pink-300">
-      <Navbar />
-      <main className="flex-grow mt-2">
-        <div className="grid sm:grid-cols-2 gap-4">
-          <div className="no-scrollbar overflow-y-scroll ml-6">
-            <h1 className="mb-8">
-              Kære Computer
-            </h1>
-            <h4 className="custom-font-dauphine">Infrequent & honest newsletter about technology</h4>
-            <h5>
-              <div className="underline decoration font-mono text-red_kc hover:linkunderline">
-                <Link
-                  href="https://buttondown.email/kaerecomputer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Sign up
-                </Link>
-              </div>
-            </h5>
-            <div className="mt-16 ml-24">
-              <div className="font-bold">
-                <h3>PREVIOUS ENTRIES</h3>
-              </div>
-
-              {posts
-                .slice(0)
-                .reverse()
-                .map((post, idx) => {
-                  return (
-                    <Link
-                      href={`/posts/${post.slug}`}
-                      key={idx}
-                      passHref={true}
-                    >
-                      <div className="w-max py-2 font-mono text-red_kc hover:linkunderline">
-                        <div className="text-2xl">{post.frontmatter.title}</div>
-                      </div>
-                    </Link>
-                  );
-                })}
+    <div className="flex flex-col sm:flex-row min-h-screen bg-lilac_kc selection:bg-pink-300">
+      <div className="sm:order-1">
+        <Navbar />
+      </div>
+      <div className="flex flex-grow">
+        <main className="ml-2 mt-0 sm:order-2">
+          <h1 className="mb-8 mt-4">Kære Computer</h1>
+          <h4 className="custom-font-dauphine">
+            Infrequent & honest newsletter about technology.
+            <Link
+              href="https://buttondown.email/kaerecomputer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration font-mono text-red_kc hover:linkunderline"
+            >
+              {" "}
+              Sign up
+            </Link>
+          </h4>
+          <div className="ml-20 mt-4">
+            <div className="font-bold">
+              <h3>PREVIOUS ENTRIES</h3>
             </div>
+            {posts
+              .slice(0)
+              .reverse()
+              .map((post, idx) => (
+                <Link href={`/posts/${post.slug}`} key={idx} passHref>
+                  <div className="w-max py-2 font-mono text-red_kc hover:linkunderline">
+                    <div className="text-2xl">{post.frontmatter.title}</div>
+                  </div>
+                </Link>
+              ))}
           </div>
+        </main>
+      </div>
 
-          <div className="no-scrollbar flex-1 overflow-y-scroll"></div>
-        </div>
-      </main>
-      <footer className=" text-right mr-4 md:mr-10 lg:mr-10">
+      <footer className="text-right mr-4 sm:mt-auto sm:flex-0 visible sm:invisible place-content-end">
         <div>Nynne Just Christoffersen © {new Date().getFullYear()}</div>
       </footer>
     </div>
