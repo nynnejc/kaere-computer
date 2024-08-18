@@ -7,6 +7,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-arial);
+  cursor: url(/posts/cursorhjerte.png), auto;
 }
 
 @layer base {
@@ -76,10 +77,12 @@ h3 {
 a {
   color: rgb(255 26 102);
   text-decoration: underline;
+  cursor: url(/posts/cursorhjerte.png), pointer;
 }
 
 a:hover {
     text-decoration:none;
+    cursor: url(/posts/cursorregnbue.png), pointer;
 }
 
 @layer utilities {
