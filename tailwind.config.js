@@ -39,7 +39,8 @@ module.exports = {
         mineral: "#b5d1cc",
       },
       cursor: {
-        
+        default: 'url(/posts/cursorregnbue.pn), default',
+        pointer: 'url(/posts/cursorhjerte.png), pointer',
       },
     },
   },

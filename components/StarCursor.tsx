@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 const StarCursor: React.FC = () => {
     const colour: string = "random"; // "random" can be replaced with any valid colour ie: "red"...
-    const sparkles: number = 100; // increase or decrease for number of sparkles falling
+    const sparkles: number = 300; // increase or decrease for number of sparkles falling
 
     const n = 10;
     const tiny = useRef<HTMLElement[]>([]);
@@ -27,8 +27,8 @@ const StarCursor: React.FC = () => {
         const colours: string[] = ['#ff0000', '#00ff00', '#ffffff', '#ff00ff', '#ffa500', '#ffff00', '#00ff00', '#ffffff', 'ff00ff'];
 
         const handleMouseMove = (evnt: MouseEvent) => {
-            y.current = evnt.pageY + 4 - window.scrollY;
-            x.current = evnt.pageX + 1;
+            y.current = evnt.clientY + 4; // Use clientY instead of pageY
+            x.current = evnt.clientX + 1;
         };
 
         const setScroll = () => {
@@ -42,7 +42,6 @@ const StarCursor: React.FC = () => {
         };
 
         const animate = () => {
-            const o = window.scrollY;
             for (let i = 0; i < n; i++) {
                 const temp1 = document.getElementById(`dots${i}`) as HTMLElement;
                 const randcolours = colours[Math.floor(Math.random() * colours.length)];
@@ -53,7 +52,7 @@ const StarCursor: React.FC = () => {
                     temp1.style.top = parseInt(temp2.style.top!) + 'px';
                     temp1.style.left = parseInt(temp2.style.left!) + 'px';
                 } else {
-                    temp1.style.top = y.current + o + 'px';
+                    temp1.style.top = y.current + sdown.current + 'px';
                     temp1.style.left = x.current + 'px';
                 }
             }
@@ -67,7 +66,7 @@ const StarCursor: React.FC = () => {
                 for (let c = 0; c < sparkles; c++) {
                     if (!starv.current[c]) {
                         star.current[c].style.left = (starx.current[c] = x.current) + "px";
-                        star.current[c].style.top = (stary.current[c] = y.current + 1) + "px";
+                        star.current[c].style.top = (stary.current[c] = y.current + 1 + sdown.current) + "px";
                         star.current[c].style.clip = "rect(0px, 5px, 5px, 0px)";
                         (star.current[c].childNodes[0] as HTMLElement).style.backgroundColor = (star.current[c].childNodes[1] as HTMLElement).style.backgroundColor = (colour === "random") ? newColour() : colour;
                         star.current[c].style.visibility = "visible";
