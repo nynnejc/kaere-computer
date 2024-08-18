@@ -73,6 +73,15 @@ h3 {
   font-family: var(--font-Dauphine-Regular);
 }
 
+a {
+  color: rgb(255 26 102);
+  text-decoration: underline;
+}
+
+a:hover {
+    text-decoration:none;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
