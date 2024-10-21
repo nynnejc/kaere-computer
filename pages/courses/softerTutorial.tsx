@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 
-export default function Tutorial() {
+export default function softerTutorial() {
   return (
     <div className="flex flex-col sm:flex-row min-h-screen bg-pistacio_kc selection:bg-pink-300">
       <div className="sm:order-2">

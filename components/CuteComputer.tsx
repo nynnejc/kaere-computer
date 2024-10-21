@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react"; 
 import Image from "next/image";
 import Link from "next/link";
 
 const CuteComputer = (): JSX.Element => {
-  // Array of image paths
-  const images = [
+  // Initialize images inside a useMemo to avoid changing dependencies on every render
+  const images = React.useMemo(() => [
     "/computer/kærecomputer-01.svg",
     "/computer/kærecomputer-02.svg",
     "/computer/kærecomputer-03.svg",
@@ -28,19 +28,27 @@ const CuteComputer = (): JSX.Element => {
     "/computer/kærecomputer-21.svg",
     "/computer/kærecomputer-22.svg",
     "/computer/kærecomputer-23.svg",
-  ];
+  ], []); // Empty dependency array means it only initializes once
 
-  const getRandomImage = () => images[Math.floor(Math.random() * images.length)];
+  // Wrap getRandomImage in useCallback to memoize it
+  const getRandomImage = useCallback(() => {
+    return images[Math.floor(Math.random() * images.length)];
+  }, [images]); // Add images as a dependency
 
-  const [currentImage, setCurrentImage] = useState(getRandomImage());
-
+  const [currentImage, setCurrentImage] = useState<string | null>(null);
   const lastChangeTimeRef = useRef(Date.now());
 
   const handleClick = () => {
     lastChangeTimeRef.current = Date.now();
-
     setCurrentImage(getRandomImage());
   };
+
+  useEffect(() => {
+    // Only set the initial image when window is defined
+    if (typeof window !== "undefined") {
+      setCurrentImage(getRandomImage());
+    }
+  }, [getRandomImage]); // Ensure getRandomImage is included here
 
   useEffect(() => {
     const autoChangeImage = () => {
@@ -54,13 +62,13 @@ const CuteComputer = (): JSX.Element => {
     const intervalId = setInterval(autoChangeImage, 45 * 1000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [getRandomImage]); // Ensure getRandomImage is included here
 
   return (
     <div onClick={handleClick}>
       <Link href="/" passHref as="/index.html">
         <Image
-          src={currentImage}
+          src={currentImage || "/placeholder.svg"} // Add a placeholder if currentImage is null
           alt="Picture of a cute cartoon computer"
           width={160}
           height={160}

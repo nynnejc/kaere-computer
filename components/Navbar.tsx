@@ -20,7 +20,7 @@ const Navbar = (): JSX.Element => {
             <Link href="/library" as="/library.html">LIBRARY</Link>
           </li>
           <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
-            <Link href="/tutorial.html">TUTORIAL</Link>
+            <Link href="/courses.html">COURSES</Link>
           </li>
         </ul>
       </nav>
