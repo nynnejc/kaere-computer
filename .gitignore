@@ -35,3 +35,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+kaere-computer/node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node
+
