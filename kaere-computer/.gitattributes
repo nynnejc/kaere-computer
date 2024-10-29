@@ -1,8 +1,7 @@
-# Set default behavior to automatically normalize line endings
+# Enforce LF for all text files
 * text=auto
-# Define line endings for specific file types
-*.js text eol=lf
+
+# Specific line ending rules
 *.md text eol=lf
 *.sh text eol=lf
 *.bat text eol=crlf
-*.node filter=lfs diff=lfs merge=lfs -text
