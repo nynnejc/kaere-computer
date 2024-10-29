@@ -18,6 +18,7 @@ const CloudBackground: React.FC = () => {
   const colorSpeed = 0.01;
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
+    console.log("Setup called");
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
     cols = Math.floor(p5.width / scl);
     rows = Math.floor(p5.height / scl);
@@ -26,13 +27,14 @@ const CloudBackground: React.FC = () => {
   };
 
   const draw = (p5: p5Types) => {
-    // Update base colors to smoothly transition
-    baseR = p5.lerp(baseR, targetR, colorSpeed);
-    baseG = p5.lerp(baseG, targetG, colorSpeed);
-    baseB = p5.lerp(baseB, targetB, colorSpeed);
+    console.log("Draw called");
+    console.log(`Canvas size: ${p5.width}x${p5.height}`); // Log canvas size
 
-    // Apply radial gradient over the whole canvas (no parameters)
-    applyRadialGradient(p5); // Ensure this has no parameters
+    // Clear the canvas
+    p5.clear(0, 0, 0, 0); // Clear with transparency
+
+    // Apply radial gradient over the whole canvas
+    applyRadialGradient(p5);
 
     // Detect mouse movement and update animation state
     if (p5.mouseX !== lastMouseX || p5.mouseY !== lastMouseY) {
@@ -59,19 +61,20 @@ const CloudBackground: React.FC = () => {
   const applyRadialGradient = (p5: p5Types) => {
     p5.loadPixels(); // Load pixels for direct manipulation
 
-    // Get the maximum possible distance from the center of the canvas to the corners
-    const cx = p5.width / 2; // Center X
-    const cy = p5.height / 2; // Center Y
-    const maxDist = p5.dist(0, 0, cx, cy); // Distance from the center to a corner
+    // Get the center and maximum distance from the center
+    const cx = p5.width / 2;
+    const cy = p5.height / 2;
+    const maxDist = p5.dist(0, 0, cx, cy);
 
     // Loop over each pixel of the canvas
     for (let x = 0; x < p5.width; x++) {
       for (let y = 0; y < p5.height; y++) {
-        // Calculate the distance of the current pixel from the center of the canvas
+        // Calculate the distance from the center
         let distance = p5.dist(x, y, cx, cy);
 
-        // Calculate intensity based on the distance, mapped to cover the full screen
-        let intensity = p5.constrain(p5.map(distance, 0, maxDist, 1, 0), 0, 1);
+        // Calculate intensity based on the distance
+        let intensity = p5.map(distance, 0, maxDist, 1, 0);
+        intensity = p5.constrain(intensity, 0, 1); // Constrain between 0 and 1
 
         // Interpolate colors based on intensity
         let r1 = p5.lerp(baseR, targetR, intensity);
