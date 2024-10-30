@@ -12,10 +12,10 @@
     "@tailwindcss/typography": "^0.4.1",
     "@types/react-dom": "^18.3.0",
     "axios": "^1.7.7",
-    "image-trace-loader": "^0.1.0",
-    "imagemin-gifsicle": "^5.2.0",
-    "imagemin-mozjpeg": "^6.0.0",
-    "imagemin-optipng": "^5.2.1",
+    "image-trace-loader": "^1.0.2",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^9.0.0",
     "jimp": "^1.6.0",
     "lqip-loader": "^2.1.1",
@@ -29,9 +29,9 @@
     "react-p5-wrapper": "^4.1.2",
     "responsive-loader": "^2.3.0",
     "semver-regex": ">=3.1.4",
-    "svg-sprite-loader": "^3.2.6",
+    "svg-sprite-loader": "^2.0.3",
     "trim-newlines": "^4.0.2",
-    "webp-loader": "^0.4.0"
+    "webp-loader": "^0.6.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.12",
