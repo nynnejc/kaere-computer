@@ -55,9 +55,7 @@ export default function About() {
             .
           </p>
           <p className="mt-6 text-3xl sm:text-5xl">
-            I built this MD template blog myself with React, Next and Typescript
-            and also made a CD pipeline for it on Github. Someday I&apos;ll
-            write a post about how I did it! All the visual design was made by{" "}
+            I built this MD template blog myself with React, Next and Typescript. All the visual design was made by{" "}
             <a
               href="https://www.instagram.com/annekatrineraahede/"
               target="_blank"
