@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST='{"pages/courses.tsx -> ../components/CloudBackground":{"id":1212,"files":["static/chunks/fcfa8dee.e7a9bd761673feb4.js","static/chunks/212.52a78f77a4b64ead.js"]}}';
