@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy static content to GitHub Pages
 on:
   push:
     branches:
@@ -10,19 +10,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.17.0'
-          
-      - name: Install dependencies
-        run: npm install 
-        
-      - name: Build the project
-        run: npm run build 
-        
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: main 
-          folder: out 
+          branch: gh-pages
+          folder: out # Adjust if static files are not in "out"
