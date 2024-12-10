@@ -17,10 +17,14 @@ const Navbar = (): JSX.Element => {
             <Link href="/about" as="/about.html">ABOUT</Link>
           </li>
           <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
-            <Link href="https://nynnechristoffersen.com/library.html" target="_blank">LIBRARY</Link>
+            <a href="https://nynnechristoffersen.com/library.html" target="_blank" rel="noopener noreferrer">
+              LIBRARY
+            </a>
           </li>
           <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
-            <Link href="https://nynnechristoffersen.com/courses.html" target="_blank">COURSES</Link>
+            <a href="https://nynnechristoffersen.com/courses.html" target="_blank" rel="noopener noreferrer">
+              COURSES
+            </a>
           </li>
         </ul>
       </nav>
