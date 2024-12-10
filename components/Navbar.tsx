@@ -10,17 +10,23 @@ const Navbar = (): JSX.Element => {
           <CuteComputer />
         </div>
         <ul className="grid grid-cols-2 gap-2 sm:flex sm:flex-col sm:items-end sm:space-y-2 sm:gap-0 text-left">
+          {/* Internal Links */}
           <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
             <Link href="/index.html">NEWSLETTER</Link>
           </li>
           <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
             <Link href="/about" as="/about.html">ABOUT</Link>
           </li>
+          {/* External Links */}
           <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
-            <a href="https://nynnechristoffersen.com/courses.html">LIBRARY</a>
+            <a href="https://nynnechristoffersen.com/library.html">
+              LIBRARY
+            </a>
           </li>
           <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
-            <a href="https://nynnechristoffersen.com/courses.html">COURSES</a>
+            <a href="https://nynnechristoffersen.com/courses.html">
+              COURSES
+            </a>
           </li>
         </ul>
       </nav>
