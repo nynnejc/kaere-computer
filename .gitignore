@@ -11,5 +11,4 @@ public
 yarn-error.log
 npm-debug.log
 .next
-out
 data/guestbook.json
