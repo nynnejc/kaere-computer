@@ -12,3 +12,4 @@ yarn-error.log
 npm-debug.log
 .next
 data/guestbook.json
+.env.local
