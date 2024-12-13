@@ -1,0 +1,15 @@
+[
+    {
+      "name": "Benny",
+      "message": "Gravko!",
+      "whereIsHome": "Her",
+      "color": "#FF5733"
+    },
+    {
+      "name": "Georg",
+      "message": "Trumle!",
+      "whereIsHome": "Hjem",
+      "color": "#00FF00"
+    }
+  ]
+  
