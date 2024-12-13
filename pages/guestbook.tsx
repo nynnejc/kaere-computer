@@ -7,7 +7,6 @@ const repo = "kaere-computer";
 const path = "data/guestbookEntries.json";
 
 const Guestbook = ({ guestbookEntries, error }: { guestbookEntries: any[]; error: string | null }) => {
-  // State to handle form inputs
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [whereIsHome, setWhereIsHome] = useState("");
@@ -15,11 +14,9 @@ const Guestbook = ({ guestbookEntries, error }: { guestbookEntries: any[]; error
   const [errorMessage, setErrorMessage] = useState("");
   const [color, setColor] = useState("#FFB2D9"); 
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate inputs
     if (!name || !message || !whereIsHome) {
       setErrorMessage("All fields are required.");
       return;
@@ -38,7 +35,7 @@ const Guestbook = ({ guestbookEntries, error }: { guestbookEntries: any[]; error
 
 
   const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setColor(e.target.value); // Update color state
+    setColor(e.target.value);
   };
 
   if (error) {
