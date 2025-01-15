@@ -1,14 +1,14 @@
 [
     {
-      "name": "Benny",
-      "message": "Gravko!",
-      "whereIsHome": "Her",
+      "name": "1",
+      "message": "2!",
+      "whereIsHome": "2",
       "color": "#FF5733"
     },
     {
-      "name": "Georg",
-      "message": "Trumle!",
-      "whereIsHome": "Hjem",
+        "name": "1",
+        "message": "2!",
+        "whereIsHome": "2",
       "color": "#00FF00"
     }
   ]

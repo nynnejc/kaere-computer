@@ -1,19 +1,44 @@
-import { useState } from "react";
-import { Octokit } from "@octokit/rest";
+import { useState, useEffect } from "react";
 
-// GitHub repo information
-const owner = "nynnejc";
-const repo = "kaere-computer";
-const path = "data/guestbookEntries.json";
+const API_ENDPOINT = "https://82eikoh5ne.execute-api.us-east-1.amazonaws.com/prod/guestbook";
 
-const Guestbook = ({ guestbookEntries, error }: { guestbookEntries: any[]; error: string | null }) => {
+interface GuestbookEntry {
+  id: string;
+  name: string;
+  message: string;
+  whereIsHome: string;
+  color: string;
+  timestamp: string;
+}
+
+const Guestbook = () => {
+  const [guestbookEntries, setGuestbookEntries] = useState<GuestbookEntry[]>([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [whereIsHome, setWhereIsHome] = useState("");
-
+  const [color, setColor] = useState("#FFB2D9");
   const [errorMessage, setErrorMessage] = useState("");
-  const [color, setColor] = useState("#FFB2D9"); 
 
+  // Fetch guestbook entries from the API
+  useEffect(() => {
+    const fetchEntries = async () => {
+      try {
+        const response = await fetch(API_ENDPOINT);
+        if (!response.ok) {
+          throw new Error("Failed to fetch guestbook entries.");
+        }
+        const data = await response.json();
+        setGuestbookEntries(data.entries);
+      } catch (error) {
+        console.error(error);
+        setErrorMessage("Failed to load guestbook entries.");
+      }
+    };
+
+    fetchEntries();
+  }, []);
+
+  // Handle form submission to add a new entry
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -22,41 +47,61 @@ const Guestbook = ({ guestbookEntries, error }: { guestbookEntries: any[]; error
       return;
     }
 
-
     const newEntry = { name, message, whereIsHome, color };
-    console.log("New guestbook entry:", newEntry);
 
-   
-    setName("");
-    setMessage("");
-    setWhereIsHome("");
-    setErrorMessage("");
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newEntry),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save entry.");
+      }
+
+      const savedEntry = await response.json();
+
+      // Add the newly added entry to the list
+      setGuestbookEntries((prevEntries) => [...prevEntries, savedEntry.entry]);
+
+      // Clear form fields
+      setName("");
+      setMessage("");
+      setWhereIsHome("");
+      setColor("#FFB2D9");
+      setErrorMessage("");
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Failed to save your entry. Please try again.");
+    }
   };
 
-
+  // Handle color picker change
   const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
   };
-
-  if (error) {
-    return <p>Failed to fetch guestbook entries: {error}</p>;
-  }
 
   return (
     <div>
       <h1>Guestbook</h1>
 
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+
       <ul>
-        {guestbookEntries.map((entry, index) => (
-          <li key={index} style={{ color: entry.color || "black" }}>
+        {guestbookEntries.map((entry) => (
+          <li key={entry.id} style={{ color: entry.color || "black" }}>
             <strong>{entry.name}</strong>: {entry.message} <br />
             <small>{entry.whereIsHome}</small>
+            <br />
+            <small>{new Date(entry.timestamp).toLocaleString()}</small>
           </li>
         ))}
       </ul>
 
       <h2>Add a new entry</h2>
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
@@ -104,38 +149,5 @@ const Guestbook = ({ guestbookEntries, error }: { guestbookEntries: any[]; error
     </div>
   );
 };
-
-export async function getStaticProps() {
-  try {
-    const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
-    const { data } = await octokit.repos.getContent({
-      owner,
-      repo,
-      path,
-    });
-
-    let guestbookEntries = [];
-
-    if (Array.isArray(data)) {
-      const file = data.find((item) => item.type === "file" && item.path === path);
-      if (file && file.content) {
-        const content = Buffer.from(file.content, "base64").toString();
-        guestbookEntries = JSON.parse(content);
-      }
-    } else if (data.type === "file" && data.content) {
-      const content = Buffer.from(data.content, "base64").toString();
-      guestbookEntries = JSON.parse(content);
-    }
-
-    return {
-      props: { guestbookEntries },
-    };
-  } catch (error) {
-    console.error("Error fetching guestbook entries:", error);
-    return {
-      props: { guestbookEntries: [], error: "Failed to fetch guestbook entries." },
-    };
-  }
-}
 
 export default Guestbook;
