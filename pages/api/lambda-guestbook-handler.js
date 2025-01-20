@@ -1,61 +1,50 @@
-const AWS = require('aws-sdk');
-const dynamoDB = new AWS.DynamoDB.DocumentClient();
+import AWS from "aws-sdk";
 
-// Define your DynamoDB table name
-const TABLE_NAME = 'GuestbookEntries';
+const dynamoDB = new AWS.DynamoDB.DocumentClient({
+  region: process.env.AWS_REGION,
+});
+const TABLE_NAME = process.env.DYNAMODB_TABLE_NAME;
 
-exports.handler = async (event) => {
-  const method = event.httpMethod;
 
-  if (method === 'GET') {
-    // Fetch guestbook entries from DynamoDB
+export default async function handler(req, res) {
+  if (req.method === "GET") {
     try {
       const result = await dynamoDB.scan({ TableName: TABLE_NAME }).promise();
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ entries: result.Items }),
-      };
+      res.status(200).json({ entries: result.Items });
     } catch (error) {
       console.error("Error fetching data from DynamoDB", error);
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ message: 'Failed to fetch guestbook entries' }),
-      };
+      res.status(500).json({ message: "Failed to fetch guestbook entries" });
     }
-  } else if (method === 'POST') {
-    // Add a new entry to the guestbook in DynamoDB
-    const requestBody = JSON.parse(event.body);
+  } else if (req.method === "POST") {
+    const { name, message, whereIsHome, color } = req.body;
+
+    if (!name || !message || !whereIsHome) {
+      res.status(400).json({ message: "All fields are required." });
+      return;
+    }
 
     const newEntry = {
-      TableName: TABLE_NAME,
-      Item: {
-        id: Date.now().toString(), // Unique ID for the new entry
-        name: requestBody.name,
-        message: requestBody.message,
-        whereIsHome: requestBody.whereIsHome,
-        color: requestBody.color,
-        timestamp: new Date().toISOString(),
-      },
+      id: Date.now().toString(),
+      name,
+      message,
+      whereIsHome,
+      color,
+      timestamp: new Date().toISOString(),
     };
 
     try {
-      // Save the new entry to DynamoDB
-      await dynamoDB.put(newEntry).promise();
-      return {
-        statusCode: 200,
-        body: JSON.stringify(newEntry.Item),
-      };
+      await dynamoDB
+        .put({
+          TableName: TABLE_NAME,
+          Item: newEntry,
+        })
+        .promise();
+      res.status(200).json({ entry: newEntry });
     } catch (error) {
       console.error("Error saving entry to DynamoDB", error);
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ message: 'Failed to save your entry' }),
-      };
+      res.status(500).json({ message: "Failed to save your entry." });
     }
   } else {
-    return {
-      statusCode: 405, // Method Not Allowed
-      body: JSON.stringify({ message: 'Method Not Allowed' }),
-    };
+    res.status(405).json({ message: "Method Not Allowed" });
   }
-};
+}

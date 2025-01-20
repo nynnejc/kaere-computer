@@ -13,3 +13,4 @@ npm-debug.log
 .next
 data/guestbook.json
 .env.local
+.env

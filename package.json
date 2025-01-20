@@ -8,6 +8,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.731.1",
+    "@aws-sdk/lib-dynamodb": "^3.731.1",
     "@next/font": "^14.2.5",
     "@octokit/rest": "^21.0.2",
     "@tailwindcss/typography": "^0.4.1",
@@ -35,6 +37,7 @@
     "svg-sprite-loader": "^2.0.3",
     "swr": "^2.2.5",
     "trim-newlines": "^4.0.2",
+    "uuid": "^11.0.5",
     "webp-loader": "^0.4.0"
   },
   "devDependencies": {
