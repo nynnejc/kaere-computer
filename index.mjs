@@ -69,7 +69,7 @@ const saveEntry = async (event) => {
 export const handler = async (event) => {
   console.log("Received event:", JSON.stringify(event, null, 2)); 
   
-  const httpMethod = event.httpMethod;
+  const httpMethod = event.requestContext.http.method;
 
   if (httpMethod === 'GET') {
     return getEntries(); // Handle GET request (fetch entries)

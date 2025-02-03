@@ -1,50 +1,80 @@
-import AWS from "aws-sdk";
+import { DynamoDBDocumentClient, ScanCommand, PutCommand } from "@aws-sdk/lib-dynamodb";
+import { DynamoDB } from "@aws-sdk/client-dynamodb";
+import { v4 as uuidv4 } from 'uuid';
 
-const dynamoDB = new AWS.DynamoDB.DocumentClient({
-  region: process.env.AWS_REGION,
-});
-const TABLE_NAME = process.env.DYNAMODB_TABLE_NAME;
+const client = new DynamoDB({});
+const dynamoDB = DynamoDBDocumentClient.from(client);
 
+const TABLE_NAME = 'GuestbookEntries';
 
-export default async function handler(req, res) {
-  if (req.method === "GET") {
-    try {
-      const result = await dynamoDB.scan({ TableName: TABLE_NAME }).promise();
-      res.status(200).json({ entries: result.Items });
-    } catch (error) {
-      console.error("Error fetching data from DynamoDB", error);
-      res.status(500).json({ message: "Failed to fetch guestbook entries" });
-    }
-  } else if (req.method === "POST") {
-    const { name, message, whereIsHome, color } = req.body;
+const createResponse = (statusCode, body) => {
+  return {
+    statusCode: statusCode,
+    body: JSON.stringify(body),
+  };
+};
 
-    if (!name || !message || !whereIsHome) {
-      res.status(400).json({ message: "All fields are required." });
-      return;
-    }
+const getEntries = async () => {
+  const params = {
+    TableName: TABLE_NAME,
+  };
 
-    const newEntry = {
-      id: Date.now().toString(),
-      name,
-      message,
-      whereIsHome,
-      color,
-      timestamp: new Date().toISOString(),
-    };
+  try {
+    const data = await dynamoDB.send(new ScanCommand(params));
+    const cleanedEntries = data.Items.map(item => {
+      const cleanedItem = {
+        ...item,
+        name: item.name.replace(/^"|"$/g, ''),
+        message: item.message.replace(/^"|"$/g, ''),
+        whereIsHome: item.whereIsHome.replace(/^"|"$/g, ''),
+        color: item.color.replace(/^"|"$/g, '')
+      };
+      return cleanedItem;
+    });
 
-    try {
-      await dynamoDB
-        .put({
-          TableName: TABLE_NAME,
-          Item: newEntry,
-        })
-        .promise();
-      res.status(200).json({ entry: newEntry });
-    } catch (error) {
-      console.error("Error saving entry to DynamoDB", error);
-      res.status(500).json({ message: "Failed to save your entry." });
-    }
-  } else {
-    res.status(405).json({ message: "Method Not Allowed" });
+    return createResponse(200, { entries: cleanedEntries });
+  } catch (error) {
+    return createResponse(500, { message: "Failed to fetch guestbook entries." });
   }
-}
+};
+
+const saveEntry = async (event) => {
+  const { name, message, whereIsHome, color } = JSON.parse(event.body);
+
+  if (!name || !message || !whereIsHome) {
+    return createResponse(400, { message: "Name, message, and home are required fields." });
+  }
+
+  const entry = {
+    id: uuidv4(),
+    name,
+    message,
+    whereIsHome,
+    color: color || "#FFB2D9",
+    timestamp: new Date().toISOString(),
+  };
+
+  const params = {
+    TableName: TABLE_NAME,
+    Item: entry,
+  };
+
+  try {
+    await dynamoDB.send(new PutCommand(params));
+    return createResponse(201, { message: "Guestbook entry added successfully.", entry });
+  } catch (error) {
+    return createResponse(500, { message: "Failed to save guestbook entry." });
+  }
+};
+
+export const handler = async (event) => {
+  const httpMethod = event.httpMethod;
+
+  if (httpMethod === 'GET') {
+    return getEntries();
+  } else if (httpMethod === 'POST') {
+    return saveEntry(event);
+  }
+
+  return createResponse(405, { message: `Method ${httpMethod} not allowed.` });
+};
