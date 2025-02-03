@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // Ensure useState and useEffect are imported
+import React, { useState, useEffect } from "react";
 
 const API_ENDPOINT = "https://82eikoh5ne.execute-api.us-east-1.amazonaws.com/prod/guestbook";
 
@@ -16,10 +16,9 @@ const Guestbook = () => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [whereIsHome, setWhereIsHome] = useState("");
-  const [color, setColor] = useState("#FFB2D9");
+  const [color, setColor] = useState("#FFFFFF");
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Fetch guestbook entries from the API
   useEffect(() => {
     const fetchEntries = async () => {
       try {
@@ -38,7 +37,6 @@ const Guestbook = () => {
     fetchEntries();
   }, []);
 
-  // Handle form submission to add a new entry
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -64,14 +62,13 @@ const Guestbook = () => {
 
       const savedEntry = await response.json();
 
-      // Add the newly added entry to the list
+  
       setGuestbookEntries((prevEntries) => [...prevEntries, savedEntry.entry]);
 
-      // Clear form fields
       setName("");
       setMessage("");
       setWhereIsHome("");
-      setColor("#FFB2D9");
+      setColor("#FFFFFF");
       setErrorMessage("");
     } catch (error) {
       console.error(error);
@@ -79,14 +76,13 @@ const Guestbook = () => {
     }
   };
 
-  // Handle color picker change
   const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
   };
 
   return (
-    <div>
-      <h1>Guestbook</h1>
+    <div className="flex flex-col sm:flex-row min-h-screen selection:bg-pink-300">
+      <h1 className="mb-8 mt-4">Guestbook</h1>
 
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
 

@@ -7,7 +7,7 @@ interface ColorPickerProps {
   defaultColor?: string;
 }
 
-const ColorPicker = ({ onChange, defaultColor = "#FFB2D9" }: ColorPickerProps) => {
+const ColorPicker = ({ onChange, defaultColor = "#FFFFFF" }: ColorPickerProps) => {
   const [color, setColor] = useState(defaultColor);
 
   const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
