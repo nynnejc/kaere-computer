@@ -39,36 +39,51 @@ const getEntries = async () => {
 };
 
 const saveEntry = async (event) => {
-  const { name, message, whereIsHome, color } = JSON.parse(event.body);
-
-  if (!name || !message || !whereIsHome) {
-    return createResponse(400, { message: "Name, message, and home are required fields." });
-  }
-
-  const entry = {
-    id: uuidv4(),
-    name,
-    message,
-    whereIsHome,
-    color: color || "#FFB2D9",
-    timestamp: new Date().toISOString(),
-  };
-
-  const params = {
-    TableName: TABLE_NAME,
-    Item: entry,
-  };
-
+  console.log("Received POST event:", event);
   try {
+    const { name, message, whereIsHome, color } = JSON.parse(event.body);
+
+    if (!name || !message || !whereIsHome) {
+      const errorMsg = "Name, message, and home are required fields.";
+      console.error(errorMsg);
+      return createResponse(400, { message: errorMsg });
+    }
+
+    const entry = {
+      id: uuidv4(),
+      name,
+      message,
+      whereIsHome,
+      color: color || "#FFB2D9",
+      timestamp: new Date().toISOString(),
+    };
+
+    const params = {
+      TableName: "GuestbookEntries", // Verify this table name!
+      Item: entry,
+    };
+
     await dynamoDB.send(new PutCommand(params));
+    console.log("Entry saved successfully:", entry);
     return createResponse(201, { message: "Guestbook entry added successfully.", entry });
   } catch (error) {
+    console.error("Error saving entry:", error);
     return createResponse(500, { message: "Failed to save guestbook entry." });
   }
 };
 
+
+
 export const handler = async (event) => {
-  const httpMethod = event.httpMethod;
+  // Check for HTTP method in both possible locations
+  let httpMethod = event.httpMethod;
+  if (!httpMethod && event.requestContext && event.requestContext.http) {
+    httpMethod = event.requestContext.http.method;
+  }
+
+  if (!httpMethod) {
+    return createResponse(400, { message: "Missing HTTP method." });
+  }
 
   if (httpMethod === 'GET') {
     return getEntries();
@@ -78,3 +93,4 @@ export const handler = async (event) => {
 
   return createResponse(405, { message: `Method ${httpMethod} not allowed.` });
 };
+
