@@ -23,15 +23,14 @@ const ColorWheel = ({ color, onChange }: ColorWheelProps) => {
 
   return (
     <div style={{ position: "relative" }}>
-      <label>Pick a color here:</label>
+      {/* <label>Pick a color here:</label> */}
       <div
         style={{
           width: "60px",
           height: "60px",
           borderRadius: "60%",
           background: color,
-          border: "2px solid #000000",
-          cursor: "pointer",
+          border: "2px solid #000000"
         }}
         onClick={() => setOpen((prev) => !prev)}
       />

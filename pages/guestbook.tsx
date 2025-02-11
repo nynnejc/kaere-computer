@@ -112,58 +112,79 @@ const Guestbook = () => {
 
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
 
+          <div className="grid grid-cols-1 lg:grid-cols-2 text-lg ">
+            <div className="mt-8 sm:ml-20 mt-4 ">
 
-          <div className="ml-20 mt-4">
-            
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name">Name:</label>
-                <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="my-6">
-                <label htmlFor="message">Message:</label>
-                <textarea
-                  id="message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="url">URL (optional):</label>
-                <input
-                  type="text"
-                  id="url"
-                  value={url}
-                  onChange={(e) => setUrl(e.target.value)}
-                  placeholder="https://yourWebsite.com"
-                />
-              </div>
-              <div className="my-6">
-                <ColorWheel color={color} onChange={setColor} />
-              </div>
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <label htmlFor="name">Name:</label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="border p-2 w-full"
+                  />
+                </div>
+                <div className="my-4">
+                  <label htmlFor="message">Message:</label>
+                  <textarea
+                    id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                    className="border p-2 w-full"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="url">URL (optional):</label>
+                  <input
+                    type="text"
+                    id="url"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                    placeholder="https://aVeryCuteWebsite.com"
+                    className="border p-2 w-full"
+                  />
+                </div>
+                <div className="my-4 flex items-center space-x-2">
+                  <p>Pick a color here:</p>
+                  <ColorWheel color={color} onChange={setColor} />
+                </div>
 
-              <button type="submit">Submit</button>
-            </form>
-          </div>
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+              {/* start of column that should center on anything smaller than fullwidst screens */}
 
-          <div className="ml-20 mt-4">
-            <ul>
-              {guestbookEntries.map((entry) => (
-                <li key={entry.id} style={{ color: entry.color || "black" }}>
-                  <strong>{entry.name}</strong>: {entry.message} <br />
-                  {entry.url && <small>{entry.url}</small>}
-                  <br />
-                  <small>{new Date(entry.timestamp).toLocaleString()}</small>
-                </li>
-              ))}
-            </ul>
+            <div className="ml-0 lg:ml-20 mt-4 mx-center">
+            <ul className="space-y-8 mx-auto">
+                {guestbookEntries.map((entry) => (
+                  <li key={entry.id} className="mx-auto" style={{ color: entry.color || "black" }}>
+                    <div className="mt-10 mt-10 text-center">
+                      <div className="text-center sm:text-xl">
+                        {entry.message}
+                      </div>
+                      <div className="custom-font-dauphine text-right texst-sm">
+                        <strong>{entry.name}</strong>
+                        {entry.url && <small>{entry.url}</small>}
+                        <br />
+                        <small>
+                          {new Date(entry.timestamp).toLocaleDateString("en-GB", {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric"
+                          })}
+                        </small>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* end of column that should center on anything smaller than fullwidst screens */}
+
           </div>
         </main>
       </div>
