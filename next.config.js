@@ -8,4 +8,13 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = [...config.externals, "next"];
+    }
+    return config;
+  },
+};
+
+

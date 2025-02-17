@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2020",           // Use modern JavaScript (AWS Lambda supports Node.js 18+)
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "allowJs": true,               // Allow JS files (useful for hybrid projects)
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "noEmit": false,               // ✅ Allow TypeScript to generate JavaScript files
+    "outDir": "dist",              // ✅ JavaScript output folder
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "CommonJS",          // ✅ Required for AWS Lambda
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -16,6 +17,5 @@
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]  // ✅ Exclude compiled output from the build process
 }
-

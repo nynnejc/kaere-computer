@@ -1,6 +1,9 @@
 import React from "react";
-import Sketch from "react-p5";
-import p5Types from "p5";
+import dynamic from "next/dynamic";
+import type p5 from "p5";
+
+
+const Sketch = dynamic(() => import("react-p5"), { ssr: false });
 
 const CloudBackground: React.FC = () => {
   // Variables for the number of columns and rows
@@ -17,7 +20,7 @@ const CloudBackground: React.FC = () => {
   const yellowR = 255, yellowG = 255, yellowB = 204;
   const colorSpeed = 0.01;
 
-  const setup = (p5: p5Types, canvasParentRef: Element) => {
+  const setup = (p5: p5, canvasParentRef: Element) => {
     console.log("Setup called");
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
     cols = Math.floor(p5.width / scl);

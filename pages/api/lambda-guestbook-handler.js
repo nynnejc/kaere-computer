@@ -2,12 +2,12 @@ import { DynamoDBDocumentClient, ScanCommand, PutCommand } from "@aws-sdk/lib-dy
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
 
-const client = new DynamoDB({});
-const dynamoDB = DynamoDBDocumentClient.from(client);
+import AWS from "aws-sdk";
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const TABLE_NAME = "GuestbookEntries"; // Ensure this matches your actual DynamoDB table name
 
-const createResponse = (statusCode: number, body: object) => ({
+const createResponse = (statusCode, body) => ({
   statusCode,
   headers: {
     "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const getEntries = async () => {
   }
 };
 
-const saveEntry = async (event: any) => {
+const saveEntry = async (event) => { // ✅ Removed ": any"
   console.log("Received POST event:", event);
 
   try {
@@ -66,7 +66,7 @@ const saveEntry = async (event: any) => {
   }
 };
 
-export const handler = async (event: any) => {
+export const handler = async (event) => { // ✅ Removed ": any"
   console.log("Received event:", JSON.stringify(event, null, 2));
 
   let httpMethod = event.httpMethod;
