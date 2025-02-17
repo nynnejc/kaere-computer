@@ -14,3 +14,4 @@ npm-debug.log
 data/guestbook.json
 .env.local
 .env
+function.zip
