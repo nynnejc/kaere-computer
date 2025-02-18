@@ -1,17 +1,21 @@
-import { DynamoDBDocumentClient, ScanCommand, PutCommand } from "@aws-sdk/lib-dynamodb";
-import { DynamoDB } from "@aws-sdk/client-dynamodb";
-import { v4 as uuidv4 } from "uuid";
+const { DynamoDBDocumentClient, ScanCommand, PutCommand } = require("@aws-sdk/lib-dynamodb");
+const { DynamoDB } = require("@aws-sdk/client-dynamodb");
 
-import AWS from "aws-sdk";
-const dynamoDB = new AWS.DynamoDB.DocumentClient();
+const client = new DynamoDB({});
+const dynamoDB = DynamoDBDocumentClient.from(client);
 
-const TABLE_NAME = "GuestbookEntries"; // Ensure this matches your actual DynamoDB table name
+const TABLE_NAME = 'GuestbookEntries';
+
+
+const generateId = () => {
+  return `${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+};
 
 const createResponse = (statusCode, body) => ({
   statusCode,
   headers: {
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*", // Enables CORS
+    "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "OPTIONS, GET, POST",
   },
   body: JSON.stringify(body),
@@ -31,7 +35,7 @@ const getEntries = async () => {
   }
 };
 
-const saveEntry = async (event) => { // ✅ Removed ": any"
+const saveEntry = async (event) => { 
   console.log("Received POST event:", event);
 
   try {
@@ -43,10 +47,10 @@ const saveEntry = async (event) => { // ✅ Removed ": any"
     }
 
     const entry = {
-      id: uuidv4(),
+      id: generateId(),
       name,
       message,
-      url: url || "", // Ensure optional URL field
+      url: url || "",
       color: color || "#FFB2D9",
       timestamp: new Date().toISOString(),
     };
@@ -66,7 +70,7 @@ const saveEntry = async (event) => { // ✅ Removed ": any"
   }
 };
 
-export const handler = async (event) => { // ✅ Removed ": any"
+exports.handler = async (event) => { 
   console.log("Received event:", JSON.stringify(event, null, 2));
 
   let httpMethod = event.httpMethod;
@@ -79,7 +83,7 @@ export const handler = async (event) => { // ✅ Removed ": any"
   }
 
   if (httpMethod === "OPTIONS") {
-    return createResponse(200, {}); // Handles preflight CORS requests
+    return createResponse(200, {});
   }
 
   if (httpMethod === "GET") {
