@@ -53,7 +53,6 @@ const Guestbook = () => {
       return;
     }
 
-    // Only require name and message; URL is optional
     if (!name || !message) {
       setErrorMessage("Name and message are required.");
       return;
@@ -62,6 +61,7 @@ const Guestbook = () => {
     const newEntry = { name, message, url, color };
 
     try {
+      console.log("Submitting new entry:", newEntry); // Add logging
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
         headers: {

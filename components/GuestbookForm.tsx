@@ -21,6 +21,8 @@ const GuestbookForm = () => {
       setMessage('');
       setUrl('');
       setTimeout(() => setSuccess(false), 3000);
+    } else {
+      console.error("Failed to save entry:", res.statusText); // Add logging
     }
   };
 
