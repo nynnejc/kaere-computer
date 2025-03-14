@@ -3,26 +3,38 @@ import { useState } from 'react';
 const GuestbookForm = () => {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
-  const [url, setUrl] = useState(''); // Renamed from whereIsHome to url
+  const [url, setUrl] = useState('');
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    console.log("Submit triggered with:", { name, message, url });
 
-    const res = await fetch('https://82eikoh5ne.execute-api.us-east-1.amazonaws.com/prod/guestbook', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, message, url }), // Updated payload
-    });
-
-    if (res.ok) {
-      setSuccess(true);
-      setName('');
-      setMessage('');
-      setUrl('');
-      setTimeout(() => setSuccess(false), 3000);
-    } else {
-      console.error("Failed to save entry:", res.statusText); // Add logging
+    
+    try {
+      const res = await fetch('https://82eikoh5ne.execute-api.us-east-1.amazonaws.com/prod/guestbook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, message, url }),
+      });
+      
+      console.log("POST response:", res);
+      
+      if (res.ok) {
+        const data = await res.json();
+        console.log("Response JSON:", data);
+        
+        setSuccess(true);
+        setName('');
+        setMessage('');
+        setUrl('');
+        setTimeout(() => setSuccess(false), 3000);
+      } else {
+        console.error("Failed to save entry:", res.statusText);
+      }
+    } catch (error) {
+      console.error("Error during POST request:", error);
     }
   };
 
