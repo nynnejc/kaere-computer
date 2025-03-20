@@ -15,3 +15,4 @@ data/guestbook.json
 .env.local
 .env
 function.zip
+out/_next/

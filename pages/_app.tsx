@@ -8,12 +8,11 @@ import { useCallback, useEffect } from "react";
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 
   const effect = useCallback(() => {
-    // Effect logic here
   }, []);
 
   useEffect(() => {
     effect();
-  }, [effect]); // Include effect in dependencies
+  }, [effect]);
 
   
   return (
