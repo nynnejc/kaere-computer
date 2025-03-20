@@ -8,16 +8,19 @@ import Post from "../models/posts";
 
 export async function getStaticProps() {
   const files = fs.readdirSync(`${process.cwd()}/data/posts`);
+
   const posts: Array<Post> = files.map((fileName) => {
     const file = fs.readFileSync(`data/posts/${fileName}`).toString();
     const { data, content } = matter(file);
     const frontmatter = { title: data.title };
+
     return {
-      slug: fileName.replace(".md", ""),
+      slug: fileName.replace(".md", ".html"),
       content: content,
       frontmatter,
     };
   });
+
   return {
     props: {
       posts,
@@ -31,6 +34,7 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
   const [active, setActive] = useState(false);
+
   return (
     <div className="flex flex-col sm:flex-row min-h-screen bg-lilac_kc selection:bg-pink-300">
       <div className="sm:order-1">
@@ -67,6 +71,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
           </div>
         </main>
       </div>
+
       <footer className="text-right mr-4 sm:mt-auto sm:flex-0 visible sm:invisible place-content-end">
         <div>Nynne Just Christoffersen © {new Date().getFullYear()}</div>
       </footer>
