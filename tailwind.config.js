@@ -1,9 +1,7 @@
-const { redirect } = require("next/dist/server/api-utils");
-
 module.exports = {
   mode: "jit",
-  purge: ["./pages/**/*.js", "./components/**/*.js"],
-  darkMode: false, // or 'media' or 'class'
+  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  darkMode: false,
   theme: {
     extend: {
       typography: (theme) => ({
@@ -39,7 +37,7 @@ module.exports = {
         mineral: "#b5d1cc",
       },
       cursor: {
-        default: 'url(/posts/cursorregnbue.pn), default',
+        default: 'url(/posts/cursorregnbue.png), default',
         pointer: 'url(/posts/cursorhjerte.png), pointer',
       },
     },
