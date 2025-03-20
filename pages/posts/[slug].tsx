@@ -22,7 +22,15 @@ const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
           </h4>
 
           <div className="ml-20 sm:w-3/5 mr-8">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown
+              components={{
+                a: ({ node, ...props }) => (
+                  <a target="_blank" rel="noopener noreferrer" {...props} />
+                ),
+              }}
+            >
+              {content}
+            </ReactMarkdown>
           </div>
         </article>
       </main>
