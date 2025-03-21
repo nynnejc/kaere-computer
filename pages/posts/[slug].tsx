@@ -8,12 +8,12 @@ import Post from "../../models/posts";
 
 const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
   return (
-    <div className="flex flex-col sm:flex-row min-h-screen selection:bg-pink-300 mb-8 ml-6">
-      <div className="sm:order-2">
+    <div className="flex flex-col lg:flex-row min-h-screen selection:bg-pink-300 mb-8 ml-6">
+      <div className="lg:order-2">
         <Navbar />
       </div>
 
-      <main className="flex-grow sm:order-1">
+      <main className="flex-grow lg:order-1">
         <h1 className="mb-8 mt-0 ml-2">Kære Computer</h1>
 
         <article>
@@ -21,7 +21,7 @@ const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
             {frontmatter.title} — {frontmatter.date}
           </h4>
 
-          <div className="ml-20 sm:w-3/5 mr-8">
+          <div className="ml-6 lg:ml-20 w-full lg:w-3/5 mr-8">
             <ReactMarkdown
               components={{
                 a: ({ node, ...props }) => (
@@ -35,6 +35,7 @@ const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
         </article>
       </main>
     </div>
+
   );
 };
 
