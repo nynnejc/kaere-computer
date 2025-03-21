@@ -117,7 +117,7 @@ const Guestbook = () => {
                     className="border p-2 w-full"
                   />
                 </div>
-                <div className="my-4">
+                <div className="my-4 text-left">
                   <label htmlFor="message">Message:</label>
                   <textarea
                     id="message"
@@ -127,7 +127,7 @@ const Guestbook = () => {
                     className="border p-2 w-full"
                   />
                 </div>
-                <div>
+                <div className="my-4 text-left">
                   <label htmlFor="url">URL (optional):</label>
                   <input
                     type="text"
@@ -163,7 +163,20 @@ const Guestbook = () => {
                       </div>
                       <div className="custom-font-dauphine text-right texst-sm">
                         <strong>{entry.name}</strong>
-                        {entry.url && <small>{entry.url}</small>}
+                        <br />
+                        {entry.url && (
+                          <small>
+                            <a
+                              href={entry.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline text-current hover:underline hover:text-current"
+                            >
+                              {entry.url}
+                            </a>
+
+                          </small>
+                        )}
                         <br />
                         <small>
                           {new Date(entry.timestamp).toLocaleDateString("en-GB", {
