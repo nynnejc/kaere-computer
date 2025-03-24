@@ -8,23 +8,23 @@ const GuestbookForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     console.log("Submit triggered with:", { name, message, url });
 
-    
+
     try {
       const res = await fetch('https://82eikoh5ne.execute-api.us-east-1.amazonaws.com/prod/guestbook', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, message, url }),
       });
-      
+
       console.log("POST response:", res);
-      
+
       if (res.ok) {
         const data = await res.json();
         console.log("Response JSON:", data);
-        
+
         setSuccess(true);
         setName('');
         setMessage('');
@@ -46,14 +46,17 @@ const GuestbookForm = () => {
           placeholder="Your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          maxLength={50}
           required
         />
         <textarea
           placeholder="Your message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          maxLength={500}
           required
         ></textarea>
+
         <input
           type="text"
           placeholder="URL (optional)"
