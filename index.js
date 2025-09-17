@@ -8,7 +8,9 @@ const TABLE_NAME = 'GuestbookEntries';
 
 
 const generateId = () => {
-  return `${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+  const array = new Uint32Array(1);
+  crypto.getRandomValues(array);
+  return `${Date.now()}-${array[0]}`;
 };
 
 const createResponse = (statusCode, body) => ({
