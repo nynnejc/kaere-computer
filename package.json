@@ -34,7 +34,7 @@
     "react-markdown": "^7.1.1",
     "responsive-loader": "^3.1.2",
     "semver-regex": ">=3.1.4",
-    "svg-sprite-loader": "^2.0.3",
+    "svg-sprite-loader": "^6.0.11",
     "swr": "^2.2.5",
     "trim-newlines": "^4.0.2",
     "uuid": "^11.0.5",
