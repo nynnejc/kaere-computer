@@ -17,9 +17,9 @@
     "express-rate-limit": "^7.5.0",
     "express-validator": "^7.2.1",
     "image-trace-loader": "^0.1.0",
-    "imagemin-gifsicle": "^5.2.0",
-    "imagemin-mozjpeg": "^7.0.0",
-    "imagemin-optipng": "^5.2.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^9.0.0",
     "jimp": "^1.6.0",
     "lqip-loader": "^2.1.1",
@@ -39,7 +39,7 @@
     "trim-newlines": "^4.0.2",
     "uuid": "^11.0.5",
     "validator": "^13.12.0",
-    "webp-loader": "^0.4.0"
+    "webp-loader": "^0.6.0"
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.749.0",
