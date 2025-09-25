@@ -10,7 +10,7 @@ export default function Courses() {
       <div className="sm:order-2 relative z-10">
         <Navbar />
       </div>
-      <main className="flex-grow sm:order-1 relative z-10">
+      <main className="grow sm:order-1 relative z-10">
         <h1 className="font-mono my-4 ml-2">Courses</h1>
         <p>plzzzzzzz</p>
       </main>

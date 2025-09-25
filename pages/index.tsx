@@ -40,7 +40,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
       <div className="sm:order-1">
         <Navbar />
       </div>
-      <div className="flex flex-grow">
+      <div className="flex grow">
         <main className="ml-2 mt-0 sm:order-2">
           <h1 className="mb-8 mt-4">Kære Computer</h1>
           <h4 className="custom-font-dauphine">

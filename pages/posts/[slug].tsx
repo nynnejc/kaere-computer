@@ -13,7 +13,7 @@ const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
         <Navbar />
       </div>
 
-      <main className="flex-grow lg:order-1">
+      <main className="grow lg:order-1">
         <h1 className="mb-8 mt-0 ml-2">Kære Computer</h1>
 
         <article>

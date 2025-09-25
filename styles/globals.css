@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 html,
 body {
@@ -8,30 +6,6 @@ body {
   margin: 0;
   font-family: var(--font-arial);
   cursor: url(/posts/cursorhjerte.png), auto;
-}
-
-@layer base {
-  p {
-    @apply text-base;
-  }
-  h1 {
-    @apply text-6xl;
-  }
-  h2 {
-    @apply text-5xl;
-  }
-  h3 {
-    @apply text-4xl;
-  }
-  h4 {
-    @apply text-3xl;
-  }
-  h5 {
-    @apply text-2xl;
-  }
-  h6 {
-    @apply text-lg;
-  }
 }
 
 @font-face {
@@ -72,12 +46,10 @@ a:hover {
   cursor: url(/posts/cursorregnbue.png), pointer;
 }
 
-@layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
   }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

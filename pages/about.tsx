@@ -7,7 +7,7 @@ export default function About() {
       <div className="sm:order-2">
         <Navbar />
       </div>
-      <main className="flex-grow sm:order-1">
+      <main className="grow sm:order-1">
         <div className="custom-font-dauphine leading-10 sm:mx-4 mx-6 sm:w-5/6 my-4">
           <p className="text-3xl sm:text-5xl">
             Hi I&apos;m Nynne Just Christoffersen and this is my blog. I am a

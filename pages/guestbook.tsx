@@ -98,7 +98,7 @@ const Guestbook = () => {
       <div className="sm:order-1">
         <Navbar />
       </div>
-      <div className="flex flex-grow">
+      <div className="flex grow">
         <main className="ml-2 mt-0 sm:order-2">
           <h1 className="mb-8 mt-4">Guestbook</h1>
           <h4 className="custom-font-dauphine">Leave a message</h4>

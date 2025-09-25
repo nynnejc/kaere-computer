@@ -8,7 +8,7 @@ export default function About() {
         <Navbar />
       </div>
 
-      <main className="flex-grow sm:order-1">
+      <main className="grow sm:order-1">
         <h1 className="font-mono my-4 ml-2">Resource Library</h1>
 
         <h5 className="ml-2 custom-font-dauphine">
