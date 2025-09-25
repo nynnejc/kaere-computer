@@ -1,14 +1,11 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false,
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}"
+  ],
   theme: {
     extend: {
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {},
-        },
-      }),
       colors: {
         lilac_kc: "#F2EAFF",
         pink_kc: "#FFB2D9",
@@ -37,14 +34,9 @@ module.exports = {
         mineral: "#b5d1cc",
       },
       cursor: {
-        default: 'url(/posts/cursorregnbue.png), default',
-        pointer: 'url(/posts/cursorhjerte.png), pointer',
+        default: "url(/posts/cursorregnbue.png), default",
+        pointer: "url(/posts/cursorhjerte.png), pointer",
       },
-    },
-  },
-  variants: {
-    extend: {
-      textColor: ["visited"],
     },
   },
   plugins: [require("@tailwindcss/typography")],

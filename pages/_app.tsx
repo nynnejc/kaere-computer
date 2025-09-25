@@ -5,7 +5,7 @@ import "../styles/fonts.css";
 import StarCursor from "../components/StarCursor";
 import { useCallback, useEffect } from "react";
 
-const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
 
   const effect = useCallback(() => {
   }, []);

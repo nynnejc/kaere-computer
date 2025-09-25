@@ -1,4 +1,3 @@
-/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +14,6 @@ body {
   p {
     @apply text-base;
   }
-
   h1 {
     @apply text-6xl;
   }
@@ -52,27 +50,15 @@ body {
   font-style: normal;
 }
 
-
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  font-family: 'Necto-Mono', sans-serif; /* Default font */
+  font-family: 'Necto-Mono', sans-serif;
 }
 
 main {
-  flex: 1; /* Or flex-grow: 1;*/
-}
-h1 {
-  font-family: var(--font-Necto-Mono);
-}
-
-h2 {
-  font-family: var(--font-Dauphine-Regular);
-}
-
-h3 {
-  font-family: var(--font-Dauphine-Regular);
+  flex: 1;
 }
 
 a {
@@ -82,48 +68,16 @@ a {
 }
 
 a:hover {
-    text-decoration:none;
-    cursor: url(/posts/cursorregnbue.png), pointer;
+  text-decoration: none;
+  cursor: url(/posts/cursorregnbue.png), pointer;
 }
 
 @layer utilities {
-  /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-
-  .custom-font-necto-h1 {
-    font-family: 'Necto-Mono', sans-serif;
-    font-size: 57em;
-  }
-
-  .custom-font-necto-h3 {
-    font-family: 'Necto-Mono', sans-serif;
-    font-size: 21em;
-  }
-
-  .custom-font-dauphine-h4 {
-    font-family: 'Dauphine-Regular', sans-serif;
-    font-size: 30em;
-  }
-  
-  .custom-font-dauphine {
-    font-family: 'Dauphine-Regular', sans-serif;
-  }
-
-  .navhover {
-    background-color: #FFB2D9;
-    box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 60%); 
-    position: relative;
-  }
-
-  .linkunderline {
-    text-decoration: wavy;
-    color: rgb(255 26 102);
-  }
-
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

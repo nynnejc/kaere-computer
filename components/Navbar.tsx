@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import CuteComputer from "./CuteComputer";
 
-const Navbar = (): JSX.Element => {
+const Navbar= (): React.ReactElement => {
   return (
     <header>
       <nav className="flex flex-col justify-center sm:items-end mr-2 mt-2 px-2">

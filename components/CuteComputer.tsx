@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const CuteComputer = (): JSX.Element => {
+const CuteComputer: React.FC = () => {
   // Initialize images inside a useMemo to avoid changing dependencies on every render
   const images = React.useMemo(() => [
     "/computer/kærecomputer-01.svg",
