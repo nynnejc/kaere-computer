@@ -9,17 +9,17 @@ body {
 }
 
 @font-face {
-  font-family: 'Necto-Mono';
-  src: url('/fonts/Necto-Mono.woff2') format('woff2'),
-       url('/fonts/Necto-Mono.woff') format('woff');
+  font-family: "Necto-Mono";
+  src: url("/fonts/Necto-Mono.woff2") format("woff2"),
+    url("/fonts/Necto-Mono.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Dauphine-Regular';
-  src: url('/fonts/Dauphine-Regular.woff2') format('woff2'),
-       url('/fonts/Dauphine-Regular.woff') format('woff');
+  font-family: "Dauphine-Regular";
+  src: url("/fonts/Dauphine-Regular.woff2") format("woff2"),
+    url("/fonts/Dauphine-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -28,7 +28,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  font-family: 'Necto-Mono', sans-serif;
+  font-family: "Necto-Mono", sans-serif;
 }
 
 main {
@@ -53,3 +53,35 @@ a:hover {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@theme {
+  --color-lilac-kc: #F2EAFF;
+  --color-pink-kc: #FFB2D9;
+  --color-powder-kc: #FCE3E3;
+  --color-yellow-kc: #F7F4C6;
+  --color-red-kc: #FF1A66;
+  --color-pistacio-kc: #F2FFEA;
+  --color-black: #000000;
+  --color-neon: #74ff58;
+  --color-electricblue: #4726ff;
+  --color-barbie: #ffa6d9;
+  --color-paleyellow: #faed8f;
+  --color-banana: #fffbd6;
+  --color-seagreen: #2dbc94;
+  --color-orangina: #ff8c00;
+  --color-lemon: #f2ff26;
+  --color-neonpink: #FE16B7;
+  --color-neonpurple: #E500FF;
+  --color-blueviolet: #4733ff;
+  --color-neonorange: #ff5200;
+  --color-pansypurple: #6f0043;
+  --color-lavender: #b8b8ff;
+  --color-mint: #bfffe6;
+  --color-slate: #1b3644;
+  --color-violetblack: #06004f;
+  --color-mineral: #b5d1cc;
+
+  --cursor-default: url(/posts/cursorregnbue.png), default;
+  --cursor-pointer: url(/posts/cursorhjerte.png), pointer;
+}
+

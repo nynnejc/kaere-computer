@@ -36,35 +36,39 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
   const [active, setActive] = useState(false);
 
   return (
-    <div className="flex flex-col sm:flex-row min-h-screen bg-lilac_kc selection:bg-pink-300">
+    <div className="flex flex-col sm:flex-row min-h-screen bg-lilac-kc selection:bg-pink-300">
       <div className="sm:order-1">
         <Navbar />
       </div>
       <div className="flex grow">
         <main className="ml-2 mt-0 sm:order-2">
           <h1 className="mb-8 mt-4">Kære Computer</h1>
-          <h4 className="custom-font-dauphine">
+          <h4 className="custom-font-dauphine text-base sm:text-lg md:text-xl">
             Infrequent newsletter about tech.{" "}
             <Link
               href="https://buttondown.email/kaerecomputer"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration font-mono text-red_kc hover:linkunderline"
+              className="underline decoration font-mono text-red-kc hover:linkunderline"
             >
               Sign up
             </Link>
           </h4>
-          <div className="ml-20 mt-4">
+          <div className="ml-4 sm:ml-20 mt-4">
             <div className="font-bold">
-              <h3>PREVIOUS ENTRIES</h3>
+              <h3 className="text-base sm:text-lg md:text-xl">
+                PREVIOUS ENTRIES
+              </h3>
             </div>
             {posts
               .slice(0)
               .reverse()
               .map((post, idx) => (
                 <Link href={`/posts/${post.slug}`} key={idx} passHref>
-                  <div className="underline decoration w-max py-2 font-mono text-red_kc hover:linkunderline">
-                    <div className="text-2xl">{post.frontmatter.title}</div>
+                  <div className="underline decoration w-max py-2 font-mono text-red-kc hover:linkunderline">
+                    <div className="text-sm sm:text-base md:text-2xl">
+                      {post.frontmatter.title}
+                    </div>
                   </div>
                 </Link>
               ))}
