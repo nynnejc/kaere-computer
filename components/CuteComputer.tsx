@@ -50,26 +50,23 @@ const CuteComputer: React.FC = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const currentTime = Date.now();
-      if (currentTime - lastChangeTimeRef.current >= 45 * 1000) {
+      if (Date.now() - lastChangeTimeRef.current >= 45_000) {
         setCurrentImage(getRandomImage());
         lastChangeTimeRef.current = Date.now();
       }
-    }, 45 * 1000);
+    }, 45_000);
 
     return () => clearInterval(intervalId);
   }, [getRandomImage]);
 
   return (
     <div onClick={handleClick}>
-      <a href="/">
-        <img
-          src={currentImage || "/placeholder.svg"}
-          alt="Picture of a cute cartoon computer"
-          width={160}
-          height={160}
-        />
-      </a>
+      <img
+        src={currentImage || "/placeholder.svg"}
+        alt="Cute cartoon computer"
+        width={160}
+        height={160}
+      />
     </div>
   );
 };
