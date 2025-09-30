@@ -24,7 +24,7 @@
     "lqip-loader": "^2.2.1",
     "next": "^15.5.4",
     "next-compose-plugins": "^2.2.1",
-    "patch-package": "^8.0.0",
+    "patch-package": "^8.0.1",
     "postinstall-postinstall": "^2.1.0",
     "react": "^19.1.1",
     "react-color": "^2.19.3",
