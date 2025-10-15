@@ -41,7 +41,7 @@
     "webp-loader": "^0.6.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-dynamodb": "^3.908.0",
+    "@aws-sdk/client-dynamodb": "^3.910.0",
     "@aws-sdk/lib-dynamodb": "^3.907.0",
     "@tailwindcss/postcss": "^4.1.14",
     "@types/lodash": "^4.17.20",
