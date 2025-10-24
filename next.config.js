@@ -6,12 +6,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  webpack(config, { isServer }) {
-    if (!isServer) {
-      config.externals = ['aws-sdk', '@aws-sdk/client-dynamodb', '@aws-sdk/lib-dynamodb'];
-    }
-    return config;
-  },
+  turbopack: {}, 
 };
 
 module.exports = nextConfig;

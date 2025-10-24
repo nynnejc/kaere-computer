@@ -9,7 +9,6 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@next/font": "^14.2.5",
     "@octokit/rest": "^22.0.0",
     "@tailwindcss/typography": "^0.5.19",
     "axios": "^1.12.2",

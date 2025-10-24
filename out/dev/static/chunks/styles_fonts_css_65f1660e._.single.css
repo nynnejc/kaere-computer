@@ -1,0 +1,20 @@
+/* [project]/styles/fonts.css [client] (css) */
+@font-face {
+  font-family: Necto-Mono;
+  src: url("/fonts/Necto-Mono.woff2") format("woff2"), url("/fonts/Necto-Mono.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Dauphine-Regular;
+  src: url("/fonts/Dauphine-Regular.woff2") format("woff2"), url("/fonts/Dauphine-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: Necto-Mono, sans-serif;
+}
+
+/*# sourceMappingURL=styles_fonts_css_65f1660e._.single.css.map*/
