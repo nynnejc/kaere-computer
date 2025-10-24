@@ -262,7 +262,7 @@ const Home = ({ posts })=>{
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("form", {
                             action: "https://kaere-computer.ghost.io/members/api/send-magic-link/",
                             method: "post",
-                            className: "flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-2 max-w-xs",
+                            className: "flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-2 max-w-xs mx-auto",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
                                     type: "email",
@@ -277,20 +277,11 @@ const Home = ({ posts })=>{
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
                                     type: "hidden",
-                                    name: "uuid",
-                                    value: ""
-                                }, void 0, false, {
-                                    fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 61,
-                                    columnNumber: 13
-                                }, ("TURBOPACK compile-time value", void 0)),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
-                                    type: "hidden",
                                     name: "origin",
                                     value: "https://kaere-computer.ghost.io"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 61,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -299,7 +290,7 @@ const Home = ({ posts })=>{
                                     children: "Sign up"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 67,
+                                    lineNumber: 66,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
@@ -318,12 +309,12 @@ const Home = ({ posts })=>{
                                         children: "PREVIOUS ENTRIES"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 76,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 76,
+                                    lineNumber: 75,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 posts.slice(0).reverse().map((post, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -336,23 +327,23 @@ const Home = ({ posts })=>{
                                                 children: post.frontmatter.title
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/index.tsx",
-                                                lineNumber: 87,
+                                                lineNumber: 86,
                                                 columnNumber: 21
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/pages/index.tsx",
-                                            lineNumber: 86,
+                                            lineNumber: 85,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, idx, false, {
                                         fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 85,
+                                        lineNumber: 84,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/index.tsx",
-                            lineNumber: 75,
+                            lineNumber: 74,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
@@ -375,12 +366,12 @@ const Home = ({ posts })=>{
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/index.tsx",
-                    lineNumber: 98,
+                    lineNumber: 97,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 97,
+                lineNumber: 96,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]

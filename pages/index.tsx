@@ -49,7 +49,7 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
           <form
             action="https://kaere-computer.ghost.io/members/api/send-magic-link/"
             method="post"
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-2 max-w-xs"
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-2 max-w-xs mx-auto"
           >
             <input
               type="email"
@@ -58,7 +58,6 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
               required
               className="border border-gray-300 rounded px-2 py-1 text-sm flex-grow"
             />
-            <input type="hidden" name="uuid" value="" />
             <input
               type="hidden"
               name="origin"
