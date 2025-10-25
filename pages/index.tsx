@@ -8,23 +8,19 @@ import Post from "../models/posts";
 
 export async function getStaticProps() {
   const files = fs.readdirSync(`${process.cwd()}/data/posts`);
-
   const posts: Array<Post> = files.map((fileName) => {
     const file = fs.readFileSync(`data/posts/${fileName}`).toString();
     const { data, content } = matter(file);
     const frontmatter = { title: data.title };
-
     return {
       slug: fileName.replace(".md", ".html"),
-      content: content,
+      content,
       frontmatter,
     };
   });
 
   return {
-    props: {
-      posts,
-    },
+    props: { posts },
   };
 }
 
@@ -32,7 +28,7 @@ type HomeProps = {
   posts: Array<Post>;
 };
 
-const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
+const Home: NextPage<HomeProps> = ({ posts }) => {
   const [active, setActive] = useState(false);
 
   return (
@@ -44,32 +40,29 @@ const Home: NextPage<HomeProps> = ({ posts }: HomeProps) => {
         <main className="ml-2 mt-0 sm:order-2">
           <h1 className="mb-8 mt-4 text-6xl">Kære Computer</h1>
           <h4 className="custom-font-dauphine text-base sm:text-lg md:text-xl">
-            Infrequent newsletter about tech.{" "}
+            Infrequent newsletter about tech.
           </h4>
-          <form
-            action="https://kaere-computer.ghost.io/members/api/send-magic-link/"
-            method="post"
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-2 max-w-xs mx-auto"
-          >
-            <input
-              type="email"
-              name="email"
-              placeholder="Your email"
-              required
-              className="border border-gray-300 rounded px-2 py-1 text-sm flex-grow"
-            />
-            <input
-              type="hidden"
-              name="origin"
-              value="https://kaere-computer.ghost.io"
-            />
-            <button
-              type="submit"
-              className="bg-pink-300 text-black px-4 py-1 rounded text-sm hover:bg-pink-400"
+
+          <div className="mt-2 mb-6 max-w-xs ml-0">
+            <form
+              className="flex flex-row items-center gap-2"
+              data-members-form="signup"
             >
-              Sign up
-            </button>
-          </form>
+              <input
+                className="border border-gray-300 rounded px-2 py-1 text-sm w-full"
+                type="email"
+                placeholder="Your email"
+                data-members-email
+                required
+              />
+              <button
+                type="submit"
+                className="bg-pink-300 text-black px-4 py-1 rounded text-sm whitespace-nowrap hover:bg-pink-400"
+              >
+                Sign up
+              </button>
+            </form>
+          </div>
 
           <div className="ml-4 sm:ml-20 mt-4">
             <div className="font-bold">

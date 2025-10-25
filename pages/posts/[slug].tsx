@@ -14,7 +14,7 @@ const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
       </div>
 
       <main className="grow lg:order-1">
-        <h1 className="mb-8 mt-0 ml-2">Kære Computer</h1>
+        <h1 className="mb-8 mt-0 ml-2 text-6xl">Kære Computer</h1>
 
         <article>
           <h4 className="ml-2 custom-font-dauphine hover:text-red_kc">
