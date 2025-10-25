@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { NextPage } from "next";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Post from "../models/posts";
 
@@ -31,6 +31,18 @@ type HomeProps = {
 const Home: NextPage<HomeProps> = ({ posts }) => {
   const [active, setActive] = useState(false);
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col sm:flex-row min-h-screen bg-lilac-kc selection:bg-pink-300">
       <div className="sm:order-1">
@@ -50,17 +62,24 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
           <h4 className="custom-font-dauphine text-base sm:text-lg md:text-xl">
             Infrequent newsletter about tech.
           </h4>
+
           <div className="mt-2 mb-6 max-w-xs ml-0">
             <form
+              method="POST"
+              action="https://kaere-computer.ghost.io/members/api/send-magic-link/"
               className="flex flex-row items-center gap-2"
-              data-members-form="signup"
             >
               <input
-                className="border border-gray-300 rounded px-2 py-1 text-sm w-full"
                 type="email"
+                name="email"
                 placeholder="Your email"
-                data-members-email
                 required
+                className="border border-gray-300 rounded px-2 py-1 text-sm w-full"
+              />
+              <input
+                type="hidden"
+                name="origin"
+                value="https://kaere-computer.com"
               />
               <button
                 type="submit"
@@ -70,6 +89,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
               </button>
             </form>
           </div>
+
           <div className="ml-4 sm:ml-20 mt-4">
             <div className="font-bold">
               <h3 className="text-base sm:text-lg md:text-xl">
