@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/styles/fonts.css"],"sourcesContent":["@font-face {\n    font-family: 'Necto-Mono';\n    src: url('/fonts/Necto-Mono.woff2') format('woff2'),\n         url('/fonts/Necto-Mono.woff') format('woff');\n    font-weight: normal;\n    font-style: normal;\n  }\n  \n  @font-face {\n    font-family: 'Dauphine-Regular';\n    src: url('/fonts/Dauphine-Regular.woff2') format('woff2'),\n         url('/fonts/Dauphine-Regular.woff') format('woff');\n    font-weight: normal;\n    font-style: normal;\n  }\n  \n  body {\n    font-family: 'Necto-Mono', sans-serif; /* Default font */\n  }\n  "],"names":[],"mappings":"AAAA;;;;;;;AAQE;;;;;;;AAQA"}}]
-}
