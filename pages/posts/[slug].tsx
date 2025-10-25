@@ -14,10 +14,16 @@ const PostPage: NextPage<Post> = ({ content, frontmatter }: Post) => {
       </div>
 
       <main className="grow lg:order-1">
-        <h1 className="mb-8 mt-0 ml-2 text-6xl">Kære Computer</h1>
-
+          <h1 className="mb-8 mt-4 text-6xl">
+            <a
+              href="/index.html"
+              className="!text-black !no-underline visited:!text-black hover:!text-black hover:!no-underline"
+            >
+              Kære Computer
+            </a>
+          </h1>
         <article>
-          <h4 className="ml-2 custom-font-dauphine hover:text-red_kc">
+          <h4 className="ml-2 custom-font-dauphine hover:text-red_kc text-3xl">
             {frontmatter.title} — {frontmatter.date}
           </h4>
 

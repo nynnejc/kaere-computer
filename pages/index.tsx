@@ -38,11 +38,18 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
       </div>
       <div className="flex grow">
         <main className="ml-2 mt-0 sm:order-2">
-          <h1 className="mb-8 mt-4 text-6xl">Kære Computer</h1>
+          <h1 className="mb-8 mt-4 text-6xl">
+            <a
+              href="/index.html"
+              className="!text-black !no-underline visited:!text-black hover:!text-black hover:!no-underline"
+            >
+              Kære Computer
+            </a>
+          </h1>
+
           <h4 className="custom-font-dauphine text-base sm:text-lg md:text-xl">
             Infrequent newsletter about tech.
           </h4>
-
           <div className="mt-2 mb-6 max-w-xs ml-0">
             <form
               className="flex flex-row items-center gap-2"
@@ -63,7 +70,6 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
               </button>
             </form>
           </div>
-
           <div className="ml-4 sm:ml-20 mt-4">
             <div className="font-bold">
               <h3 className="text-base sm:text-lg md:text-xl">
