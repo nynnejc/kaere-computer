@@ -63,32 +63,13 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
             Infrequent newsletter about tech.
           </h4>
 
-          <div className="mt-2 mb-6 max-w-xs ml-0">
-            <form
-              method="POST"
-              action="https://kaere-computer.ghost.io/members/api/send-magic-link/"
-              className="flex flex-row items-center gap-2"
-            >
-              <input
-                type="email"
-                name="email"
-                placeholder="Your email"
-                required
-                className="border border-gray-300 rounded px-2 py-1 text-sm w-full"
-              />
-              <input
-                type="hidden"
-                name="origin"
-                value="https://kaere-computer.com"
-              />
-              <button
-                type="submit"
-                className="bg-pink-300 text-black px-4 py-1 rounded text-sm whitespace-nowrap hover:bg-pink-400"
-              >
-                Sign up
-              </button>
-            </form>
-          </div>
+          <a
+            href="https://kaere-computer.ghost.io/#/portal"
+            target="_blank"
+            className="bg-pink-300 text-black px-4 py-1 rounded text-sm hover:bg-pink-400"
+          >
+            Sign up for newsletter
+          </a>
 
           <div className="ml-4 sm:ml-20 mt-4">
             <div className="font-bold">
