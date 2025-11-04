@@ -9,7 +9,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@octokit/rest": "^22.0.0",
+    "@octokit/rest": "^22.0.1",
     "@tailwindcss/typography": "^0.5.19",
     "axios": "^1.13.1",
     "express-rate-limit": "^8.1.0",
