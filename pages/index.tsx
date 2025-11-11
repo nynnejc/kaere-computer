@@ -73,7 +73,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 
           <div className="ml-4 sm:ml-20 mt-4">
             <div className="font-bold">
-              <h3 className="text-base sm:text-lg md:text-xl">
+              <h3 className="text-base sm:text-lg md:text-2xl">
                 PREVIOUS ENTRIES
               </h3>
             </div>
@@ -82,8 +82,8 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
               .reverse()
               .map((post, idx) => (
                 <Link href={`/posts/${post.slug}`} key={idx} passHref>
-                  <div className="underline decoration w-max py-2 font-mono text-red-kc hover:linkunderline">
-                    <div className="text-sm sm:text-base md:text-2xl">
+                  <div className="underline decoration w-max py-2 font-mono hover:linkunderline">
+                    <div className="text-sm sm:text-base md:text-xl">
                       {post.frontmatter.title}
                     </div>
                   </div>

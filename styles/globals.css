@@ -53,7 +53,7 @@ a:hover {
   position: relative;
 }
 
-li:hover {
+nav ul li:hover {
   background-color: #ffb2d9;
   box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 60%);
   position: relative;
