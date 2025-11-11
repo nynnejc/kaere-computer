@@ -36,14 +36,27 @@ main {
 }
 
 a {
-  color: rgb(255 26 102);
+  color: black;
   text-decoration: underline;
   cursor: url(/posts/cursorhjerte.png), pointer;
 }
 
 a:hover {
+  color: rgb(255 26 102);
   text-decoration: none;
   cursor: url(/posts/cursorregnbue.png), pointer;
+}
+
+.navhover {
+  background-color: #ffb2d9;
+  box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 60%);
+  position: relative;
+}
+
+li:hover {
+  background-color: #ffb2d9;
+  box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 60%);
+  position: relative;
 }
 
 @utility no-scrollbar {
@@ -55,12 +68,12 @@ a:hover {
 }
 
 @theme {
-  --color-lilac-kc: #F2EAFF;
-  --color-pink-kc: #FFB2D9;
-  --color-powder-kc: #FCE3E3;
-  --color-yellow-kc: #F7F4C6;
-  --color-red-kc: #FF1A66;
-  --color-pistacio-kc: #F2FFEA;
+  --color-lilac-kc: #f2eaff;
+  --color-pink-kc: #ffb2d9;
+  --color-powder-kc: #fce3e3;
+  --color-yellow-kc: #f7f4c6;
+  --color-red-kc: #ff1a66;
+  --color-pistacio-kc: #f2ffea;
   --color-black: #000000;
   --color-neon: #74ff58;
   --color-electricblue: #4726ff;
@@ -70,8 +83,8 @@ a:hover {
   --color-seagreen: #2dbc94;
   --color-orangina: #ff8c00;
   --color-lemon: #f2ff26;
-  --color-neonpink: #FE16B7;
-  --color-neonpurple: #E500FF;
+  --color-neonpink: #fe16b7;
+  --color-neonpurple: #e500ff;
   --color-blueviolet: #4733ff;
   --color-neonorange: #ff5200;
   --color-pansypurple: #6f0043;
@@ -84,4 +97,3 @@ a:hover {
   --cursor-default: url(/posts/cursorregnbue.png), default;
   --cursor-pointer: url(/posts/cursorhjerte.png), pointer;
 }
-

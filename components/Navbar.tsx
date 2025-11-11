@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import CuteComputer from "./CuteComputer";
 
 const Navbar: React.FC = () => {
@@ -13,7 +14,13 @@ const Navbar: React.FC = () => {
             <a href="/index.html">NEWSLETTER</a>
           </li>
           <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
-            <a href="/guestbook.html">GUESTBOOK</a>
+            <Link href="/guestbook" as="/guestbook.html">GUESTBOOK</Link>
+          </li>
+          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
+            <a href="/library">LIBRARY</a>
+          </li>
+          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
+            <a href="/about">ABOUT</a>
           </li>
         </ul>
       </nav>
