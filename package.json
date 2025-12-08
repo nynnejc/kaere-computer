@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.943.0",
-    "@aws-sdk/lib-dynamodb": "^3.943.0",
+    "@aws-sdk/lib-dynamodb": "^3.946.0",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/lodash": "^4.17.21",
     "@types/minimatch": "^6.0.0",
