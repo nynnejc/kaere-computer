@@ -36,7 +36,7 @@
     "swr": "^2.3.8",
     "trim-newlines": "^5.0.0",
     "uuid": "^13.0.0",
-    "validator": "^13.15.23",
+    "validator": "^13.15.26",
     "webp-loader": "^0.6.0"
   },
   "devDependencies": {
