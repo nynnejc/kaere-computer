@@ -43,7 +43,7 @@
     "@aws-sdk/client-dynamodb": "^3.965.0",
     "@aws-sdk/lib-dynamodb": "^3.962.0",
     "@tailwindcss/postcss": "^4.1.18",
-    "@types/lodash": "^4.17.21",
+    "@types/lodash": "^4.17.23",
     "@types/minimatch": "^6.0.0",
     "@types/node": "^25.0.3",
     "@types/react": "^19.2.7",
