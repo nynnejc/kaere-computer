@@ -32,15 +32,15 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
+    const existingScript = document.getElementById("ghost-signup-script");
+    if (existingScript) return;
+
     const script = document.createElement("script");
+    script.id = "ghost-signup-script";
     script.src =
       "https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js";
     script.async = true;
     document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
   }, []);
 
   return (
