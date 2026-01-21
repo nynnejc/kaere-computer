@@ -16,3 +16,5 @@ data/guestbook.json
 function.zip
 out/_next/
 out
+# Next build artifacts
+_next/
