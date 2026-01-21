@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { NextPage } from "next";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Post from "../models/posts";
 
@@ -30,17 +30,23 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = ({ posts }) => {
   const [active, setActive] = useState(false);
+  const signupRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const existingScript = document.getElementById("ghost-signup-script");
-    if (existingScript) return;
+    const container = signupRef.current;
+    if (!container) return;
+    if (container.querySelector("script[data-ghost-signup='true']")) return;
 
     const script = document.createElement("script");
-    script.id = "ghost-signup-script";
     script.src =
       "https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js";
     script.async = true;
-    document.body.appendChild(script);
+    script.dataset.ghostSignup = "true";
+    script.setAttribute("data-button-color", "#FFB3D9");
+    script.setAttribute("data-button-text-color", "#000000");
+    script.setAttribute("data-site", "https://newsletter.kaerecomputer.dk/");
+    script.setAttribute("data-locale", "en");
+    container.appendChild(script);
   }, []);
 
   return (
@@ -63,13 +69,15 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
             Infrequent newsletter about tech.
           </h4>
 
-          <a
-            href="https://kaere-computer.ghost.io/#/portal"
-            target="_blank"
-            className="bg-pink-300 text-black px-4 py-1 rounded text-sm hover:bg-pink-400"
-          >
-            Sign up for newsletter
-          </a>
+          <div
+            ref={signupRef}
+            className="ml-4 pt-6 pb-6 sm:ml-20 mt-2 ghost-signup"
+            style={{
+              minHeight: "58px",
+              maxWidth: "440px",
+              width: "100%",
+            }}
+          />
 
           <div className="ml-4 sm:ml-20 mt-4">
             <div className="font-bold">

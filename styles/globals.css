@@ -47,6 +47,13 @@ a:hover {
   cursor: url(/posts/cursorregnbue.png), pointer;
 }
 
+.ghost-signup button,
+.ghost-signup input[type="submit"],
+.ghost-signup .gh-signup-form button,
+.ghost-signup .gh-signup-cta {
+  font-family: "Necto-Mono", monospace !important;
+}
+
 .navhover {
   background-color: #ffb2d9;
   box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 60%);
