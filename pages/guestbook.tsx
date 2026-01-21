@@ -161,7 +161,7 @@ const Guestbook = () => {
                       <div className="text-center sm:text-xl">
                         {entry.message}
                       </div>
-                      <div className="custom-font-dauphine text-right texst-sm">
+                      <div className="custom-font-dauphine text-right text-sm">
                         <strong>{entry.name}</strong>
                         <br />
                         {entry.url && (

@@ -4,7 +4,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: var(--font-arial);
   cursor: url(/posts/cursorhjerte.png), auto;
 }
 
@@ -31,6 +30,10 @@ body {
   font-family: "Necto-Mono", sans-serif;
 }
 
+.custom-font-dauphine {
+  font-family: "Dauphine-Regular", serif !important;
+}
+
 main {
   flex: 1;
 }
@@ -54,53 +57,19 @@ a:hover {
   font-family: "Necto-Mono", monospace !important;
 }
 
-.navhover {
-  background-color: #ffb2d9;
-  box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 60%);
-  position: relative;
-}
-
 nav ul li:hover {
   background-color: #ffb2d9;
   box-shadow: 0.3em 0.3em 1em rgb(0 0 0 / 60%);
   position: relative;
 }
 
-@utility no-scrollbar {
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 @theme {
   --color-lilac-kc: #f2eaff;
-  --color-pink-kc: #ffb2d9;
-  --color-powder-kc: #fce3e3;
-  --color-yellow-kc: #f7f4c6;
-  --color-red-kc: #ff1a66;
-  --color-pistacio-kc: #f2ffea;
-  --color-black: #000000;
-  --color-neon: #74ff58;
-  --color-electricblue: #4726ff;
-  --color-barbie: #ffa6d9;
-  --color-paleyellow: #faed8f;
-  --color-banana: #fffbd6;
-  --color-seagreen: #2dbc94;
-  --color-orangina: #ff8c00;
-  --color-lemon: #f2ff26;
-  --color-neonpink: #fe16b7;
-  --color-neonpurple: #e500ff;
-  --color-blueviolet: #4733ff;
-  --color-neonorange: #ff5200;
-  --color-pansypurple: #6f0043;
-  --color-lavender: #b8b8ff;
-  --color-mint: #bfffe6;
-  --color-slate: #1b3644;
+  --color-powder_kc: #fce3e3;
+  --color-pink_kc: #ffb2d9;
+  --color-yellow_kc: #f7f4c6;
+  --color-red_kc: #ff1a66;
+  --color-pistacio_kc: #f2ffea;
   --color-violetblack: #06004f;
-  --color-mineral: #b5d1cc;
-
-  --cursor-default: url(/posts/cursorregnbue.png), default;
-  --cursor-pointer: url(/posts/cursorhjerte.png), pointer;
+  --color-barbie: #ffa6d9;
 }

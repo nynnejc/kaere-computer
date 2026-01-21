@@ -10,16 +10,16 @@ const Navbar: React.FC = () => {
           <CuteComputer />
         </div>
         <ul className="grid grid-cols-2 gap-2 sm:flex sm:flex-col sm:items-end sm:space-y-2 sm:gap-0 text-left">
-          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
+          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans">
             <a href="/index.html">NEWSLETTER</a>
           </li>
-          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
+          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans">
             <Link href="/guestbook" as="/guestbook.html">GUESTBOOK</Link>
           </li>
-          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
+          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans">
             <a href="/library">LIBRARY</a>
           </li>
-          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans hover:navhover">
+          <li className="sm:w-40 mb-1 pl-1 pr-1 bg-white border border-black text-2xl font-sans">
             <a href="/about">ABOUT</a>
           </li>
         </ul>

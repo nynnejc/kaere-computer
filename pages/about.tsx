@@ -23,14 +23,14 @@ export default function About() {
               href="mailto:nynnejc@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration font-mono text-red_kc hover:linkunderline"
+              className="underline decoration font-mono text-red_kc"
             >
               email
             </a>{" "}
             me. I have a{" "}
             <a
               href="./"
-              className="underline decoration font-mono text-red_kc hover:linkunderline"
+              className="underline decoration font-mono text-red_kc"
             >
               newsletter
             </a>
@@ -39,7 +39,7 @@ export default function About() {
               href="https://github.com/nynnejc"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration font-mono text-red_kc hover:linkunderline"
+              className="underline decoration font-mono text-red_kc"
             >
               Github
             </a>{" "}
@@ -48,7 +48,7 @@ export default function About() {
               href="https://helvede.net/@nynne"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration font-mono text-red_kc hover:linkunderline"
+              className="underline decoration font-mono text-red_kc"
             >
               hell
             </a>
@@ -60,7 +60,7 @@ export default function About() {
               href="https://www.instagram.com/annekatrineraahede/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration font-mono text-red_kc hover:linkunderline"
+              className="underline decoration font-mono text-red_kc"
             >AK</a>.
           </p>
         </div>

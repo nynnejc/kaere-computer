@@ -13,7 +13,7 @@ export async function getStaticProps() {
     const { data, content } = matter(file);
     const frontmatter = { title: data.title };
     return {
-      slug: fileName.replace(".md", ".html"),
+      slug: fileName.replace(".md", ""),
       content,
       frontmatter,
     };
@@ -65,7 +65,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
             </a>
           </h1>
 
-          <h4 className="custom-font-dauphine text-base sm:text-lg md:text-xl">
+          <h4 className="font-sans text-base sm:text-lg md:text-xl">
             Infrequent newsletter about tech.
           </h4>
 
@@ -90,7 +90,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
               .reverse()
               .map((post, idx) => (
                 <Link href={`/posts/${post.slug}`} key={idx} passHref>
-                  <div className="underline decoration w-max py-2 font-mono hover:linkunderline">
+                  <div className="underline decoration w-max py-2 font-mono">
                     <div className="text-sm sm:text-base md:text-xl">
                       {post.frontmatter.title}
                     </div>
