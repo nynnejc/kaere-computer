@@ -10,4 +10,20 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Testing
 
+Install dependencies and run:
+
+```bash
+npm install
+npm test
+```
+
+Optional scripts:
+
+```bash
+npm run test:watch
+npm run test:coverage
+```
+
+Test configuration and specs live in `test/`.
