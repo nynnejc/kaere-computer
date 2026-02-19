@@ -29,10 +29,16 @@ const createResponse = (data: any, ok = true): MockResponse => ({
 
 describe("Guestbook page", () => {
   const fetchMock = jest.fn();
+  const alertMock = jest.spyOn(window, "alert").mockImplementation(() => {});
 
   beforeEach(() => {
     fetchMock.mockReset();
+    alertMock.mockClear();
     global.fetch = fetchMock as unknown as typeof fetch;
+  });
+
+  afterAll(() => {
+    alertMock.mockRestore();
   });
 
   it("fetches and renders guestbook entries newest first", async () => {
@@ -140,5 +146,29 @@ describe("Guestbook page", () => {
     );
 
     expect(await screen.findByText("Fresh post")).toBeInTheDocument();
+  });
+
+  it("blocks script injection attempts and shows popup", async () => {
+    fetchMock.mockResolvedValueOnce(
+      createResponse({
+        body: JSON.stringify({ entries: [] }),
+      })
+    );
+
+    render(<Guestbook />);
+    await screen.findByText("Leave a message");
+
+    await userEvent.type(screen.getByLabelText("Name:"), "Nynne");
+    await userEvent.type(
+      screen.getByLabelText("Message:"),
+      "<script>alert('xss')</script>"
+    );
+    await userEvent.click(screen.getByRole("button", { name: "Pick Pink" }));
+    await userEvent.click(screen.getByRole("button", { name: "Submit" }));
+
+    expect(alertMock).toHaveBeenCalledWith(
+      expect.stringContaining("PEE PEE POO POO!")
+    );
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });

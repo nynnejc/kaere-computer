@@ -30,6 +30,12 @@ const Guestbook = () => {
     });
   };
 
+  const containsScriptLikeInput = (value: string) => {
+    const suspiciousPattern =
+      /<\s*script|javascript:|data:\s*text\/html|on\w+\s*=|<\s*iframe|<\s*object|<\s*embed/i;
+    return suspiciousPattern.test(value);
+  };
+
   useEffect(() => {
     const fetchEntries = async () => {
       try {
@@ -53,6 +59,14 @@ const Guestbook = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (
+      containsScriptLikeInput(name) ||
+      containsScriptLikeInput(message) ||
+      containsScriptLikeInput(url)
+    ) {
+      window.alert("PEE PEE POO POO! No post for uuuuuuu");
+      return;
+    }
     if (color === "#FFFFFF") {
       setErrorMessage("You have to select a color other than white to prove your humanity!");
       return;
