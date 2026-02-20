@@ -9,11 +9,11 @@ export default function About() {
       </div>
 
       <main className="grow sm:order-1">
-        <h1 className="font-mono my-4 ml-2">Resource Library</h1>
+        <h1 className="font-mono mb-8 mt-4 text-6xl lg:ml-6">Resource Library</h1>
 
-        <h5 className="ml-2 custom-font-dauphine">
+        <h4 className="font-sans text-base sm:text-lg md:text-xl lg:ml-6">
           Envolving list to encourage the new programmer
-        </h5>
+        </h4>
 
         <div className="ml-20 sm:w-3/5 mr-8">
           <div className="pt-4">

@@ -114,8 +114,10 @@ const Guestbook = () => {
       </div>
       <div className="flex grow w-full">
         <main className="mt-0 px-4 sm:px-0 sm:order-2 w-full">
-          <h1 className="mb-8 mt-4">Guestbook</h1>
-          <h4 className="custom-font-dauphine">Leave a message</h4>
+          <h1 className="mb-8 mt-4 text-6xl lg:ml-6">Guestbook</h1>
+          <h4 className="font-sans text-base sm:text-lg md:text-xl lg:ml-6">
+            Leave a message
+          </h4>
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
           <div className="grid grid-cols-1 lg:grid-cols-2 text-lg ">
             <div className="mt-4 sm:mt-8 sm:ml-20">

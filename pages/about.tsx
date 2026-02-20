@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 export default function About() {
   return (
-    <body className="flex flex-col sm:flex-row min-h-screen  bg-powder_kc selection:bg-pink-300">
+    <div className="flex flex-col sm:flex-row min-h-screen bg-powder_kc selection:bg-pink-300">
       <div className="sm:order-2">
         <Navbar />
       </div>
@@ -65,6 +65,6 @@ export default function About() {
           </p>
         </div>
       </main>
-    </body>
+    </div>
   );
 }

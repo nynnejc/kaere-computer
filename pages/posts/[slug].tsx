@@ -53,7 +53,7 @@ const PostPage: NextPage<PostPageProps> = ({
       </div>
 
       <main className="grow w-full px-4 lg:order-1 lg:px-0">
-        <h1 className="mb-8 mt-4 text-6xl">
+        <h1 className="mb-8 mt-4 text-6xl lg:ml-6">
           <a
             href="/index.html"
             className="!text-black !no-underline visited:!text-black hover:!text-black hover:!no-underline"
@@ -62,7 +62,7 @@ const PostPage: NextPage<PostPageProps> = ({
           </a>
         </h1>
         <article>
-          <h4 className="custom-font-dauphine hover:text-red_kc text-3xl">
+          <h4 className="custom-font-dauphine hover:text-red_kc text-3xl lg:ml-6">
             {frontmatter.title} — {frontmatter.date}
           </h4>
 
