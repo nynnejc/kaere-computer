@@ -25,19 +25,19 @@ const PostPage: NextPage<PostPageProps> = ({
 }: PostPageProps) => {
   const renderNav = () => (
     <div className="mt-10 flex items-center justify-between">
-      {prevPost ? (
-        <Link href={`/posts/${prevPost.slug}`} legacyBehavior>
+      {nextPost ? (
+        <Link href={`/posts/${nextPost.slug}`} legacyBehavior>
           <a className="inline-block bg-white border border-black px-3 py-1 text-sm">
-            Previous post
+            Next post
           </a>
         </Link>
       ) : (
         <span />
       )}
-      {nextPost ? (
-        <Link href={`/posts/${nextPost.slug}`} legacyBehavior>
+      {prevPost ? (
+        <Link href={`/posts/${prevPost.slug}`} legacyBehavior>
           <a className="inline-block bg-white border border-black px-3 py-1 text-sm">
-            Next post
+            Previous post
           </a>
         </Link>
       ) : (
