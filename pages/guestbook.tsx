@@ -112,13 +112,13 @@ const Guestbook = () => {
       <div className="sm:order-1">
         <Navbar />
       </div>
-      <div className="flex grow">
-        <main className="ml-2 mt-0 sm:order-2">
+      <div className="flex grow w-full">
+        <main className="mt-0 px-4 sm:px-0 sm:order-2 w-full">
           <h1 className="mb-8 mt-4">Guestbook</h1>
           <h4 className="custom-font-dauphine">Leave a message</h4>
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
           <div className="grid grid-cols-1 lg:grid-cols-2 text-lg ">
-            <div className="mt-8 sm:ml-20 mt-4 ">
+            <div className="mt-4 sm:mt-8 sm:ml-20">
               <form onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="name">Name:</label>
@@ -159,7 +159,7 @@ const Guestbook = () => {
                 <button type="submit">Submit</button>
               </form>
             </div>
-            <div className="ml-0 lg:ml-20 mt-4 mx-center">
+            <div className="mt-4 lg:ml-20 mx-center">
               {[...guestbookEntries]
                 .sort(
                   (a, b) =>

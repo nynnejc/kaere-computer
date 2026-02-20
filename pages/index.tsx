@@ -50,12 +50,12 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
   }, []);
 
   return (
-    <div className="flex flex-col sm:flex-row min-h-screen bg-lilac-kc selection:bg-pink-300">
+    <div className="flex w-full flex-col sm:flex-row min-h-screen bg-lilac-kc selection:bg-pink-300 overflow-x-hidden">
       <div className="sm:order-1">
         <Navbar />
       </div>
-      <div className="flex grow">
-        <main className="ml-2 mt-0 sm:order-2">
+      <div className="flex grow w-full">
+        <main className="mt-0 px-2 sm:px-0 sm:order-2 w-full">
           <h1 className="mb-8 mt-4 text-6xl">
             <a
               href="/index.html"
@@ -71,15 +71,14 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 
           <div
             ref={signupRef}
-            className="ml-4 pt-6 pb-6 sm:ml-20 mt-2 ghost-signup"
+            className="pt-6 pb-6 sm:ml-20 mt-2 ghost-signup"
             style={{
               minHeight: "58px",
-              maxWidth: "440px",
-              width: "100%",
+              width: "min(100%, 440px)",
             }}
           />
 
-          <div className="ml-4 sm:ml-20 mt-4">
+          <div className="mt-4 sm:ml-20">
             <div className="font-bold">
               <h3 className="text-base sm:text-lg md:text-2xl">
                 PREVIOUS ENTRIES

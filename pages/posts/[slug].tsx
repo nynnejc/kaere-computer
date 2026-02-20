@@ -24,7 +24,7 @@ const PostPage: NextPage<PostPageProps> = ({
   nextPost,
 }: PostPageProps) => {
   const renderNav = () => (
-    <div className="flex items-center justify-between mt-10 ml-2 mr-8">
+    <div className="mt-10 flex items-center justify-between">
       {prevPost ? (
         <Link href={`/posts/${prevPost.slug}`} legacyBehavior>
           <a className="inline-block bg-white border border-black px-3 py-1 text-sm">
@@ -47,12 +47,12 @@ const PostPage: NextPage<PostPageProps> = ({
   );
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen selection:bg-pink-300 mb-8 ml-6">
+    <div className="mb-8 flex min-h-screen w-full flex-col selection:bg-pink-300 lg:flex-row">
       <div className="lg:order-2">
         <Navbar />
       </div>
 
-      <main className="grow lg:order-1">
+      <main className="grow w-full px-4 lg:order-1 lg:px-0">
         <h1 className="mb-8 mt-4 text-6xl">
           <a
             href="/index.html"
@@ -62,11 +62,11 @@ const PostPage: NextPage<PostPageProps> = ({
           </a>
         </h1>
         <article>
-          <h4 className="ml-2 custom-font-dauphine hover:text-red_kc text-3xl">
+          <h4 className="custom-font-dauphine hover:text-red_kc text-3xl">
             {frontmatter.title} — {frontmatter.date}
           </h4>
 
-          <div className="ml-6 lg:ml-20 w-full lg:w-3/5 mr-8">
+          <div className="w-full lg:ml-20 lg:w-3/5">
             <ReactMarkdown
               components={{
                 a: ({ node, ...props }) => (
