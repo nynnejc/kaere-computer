@@ -5,22 +5,66 @@ const client = new DynamoDB({});
 const dynamoDB = DynamoDBDocumentClient.from(client);
 
 const TABLE_NAME = 'GuestbookEntries';
+const RATE_LIMIT_TABLE_NAME = process.env.RATE_LIMIT_TABLE_NAME || "GuestbookRateLimits";
+const RATE_LIMIT_WINDOW_SECONDS = Number(process.env.RATE_LIMIT_WINDOW_SECONDS || "30");
 
 
 const generateId = () => {
   return `${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 };
 
-const createResponse = (statusCode, body) => ({
+const createResponse = (statusCode, body, extraHeaders = {}) => ({
   statusCode,
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "OPTIONS, GET, POST",
     "Access-Control-Allow-Headers": "Content-Type", // Ensure headers are allowed
+    ...extraHeaders,
   },
   body: JSON.stringify(body),
 });
+
+const getClientIp = (event) => {
+  const xForwardedFor = event?.headers?.["x-forwarded-for"] || event?.headers?.["X-Forwarded-For"];
+  if (typeof xForwardedFor === "string" && xForwardedFor.length > 0) {
+    return xForwardedFor.split(",")[0].trim();
+  }
+
+  return (
+    event?.requestContext?.identity?.sourceIp ||
+    event?.requestContext?.http?.sourceIp ||
+    "unknown"
+  );
+};
+
+const reserveRateLimitSlot = async (clientIp) => {
+  if (!clientIp || clientIp === "unknown") {
+    return { allowed: false };
+  }
+
+  const now = Math.floor(Date.now() / 1000);
+  const expiresAt = now + RATE_LIMIT_WINDOW_SECONDS;
+  const params = {
+    TableName: RATE_LIMIT_TABLE_NAME,
+    Item: {
+      ip: clientIp,
+      createdAt: now,
+      expiresAt,
+    },
+    ConditionExpression: "attribute_not_exists(ip)",
+  };
+
+  try {
+    await dynamoDB.send(new PutCommand(params));
+    return { allowed: true };
+  } catch (error) {
+    if (error?.name === "ConditionalCheckFailedException") {
+      return { allowed: false, retryAfterSeconds: RATE_LIMIT_WINDOW_SECONDS };
+    }
+    throw error;
+  }
+};
 
 const getEntries = async () => {
   const params = { TableName: TABLE_NAME };
@@ -40,6 +84,16 @@ const saveEntry = async (event) => {
   console.log("Received POST event:", event);
 
   try {
+    const clientIp = getClientIp(event);
+    const rateLimit = await reserveRateLimitSlot(clientIp);
+    if (!rateLimit.allowed) {
+      return createResponse(
+        429,
+        { message: "Too many requests. Please try again later." },
+        { "Retry-After": String(rateLimit.retryAfterSeconds || RATE_LIMIT_WINDOW_SECONDS) }
+      );
+    }
+
     const { name, message, url, color } = JSON.parse(event.body);
 
     if (!name || !message) {
