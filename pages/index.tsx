@@ -91,18 +91,24 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
       return;
     }
 
-    if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(() => {
+    const requestIdleCallbackFn =
+      typeof window !== "undefined"
+        ? (window as unknown as { requestIdleCallback?: (cb: () => void) => void })
+            .requestIdleCallback
+        : undefined;
+
+    if (typeof requestIdleCallbackFn === "function") {
+      requestIdleCallbackFn(() => {
         warmGuestbookCache();
       });
       return;
     }
 
-    const timeoutId = window.setTimeout(() => {
+    const timeoutId = globalThis.setTimeout(() => {
       warmGuestbookCache();
     }, 500);
 
-    return () => window.clearTimeout(timeoutId);
+    return () => globalThis.clearTimeout(timeoutId);
   }, []);
 
   return (

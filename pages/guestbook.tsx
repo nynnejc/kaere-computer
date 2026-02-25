@@ -6,6 +6,7 @@ const API_ENDPOINT =
   "https://82eikoh5ne.execute-api.us-east-1.amazonaws.com/prod/guestbook";
 const GUESTBOOK_CACHE_KEY = "guestbook_entries_cache_v1";
 const GUESTBOOK_CACHE_TTL_MS = 5 * 60 * 1000;
+const SHOULD_USE_GUESTBOOK_CACHE = process.env.NODE_ENV !== "test";
 
 interface GuestbookEntry {
   id: string;
@@ -53,7 +54,7 @@ const Guestbook = () => {
 
       try {
         const cachedRaw =
-          typeof window !== "undefined"
+          SHOULD_USE_GUESTBOOK_CACHE && typeof window !== "undefined"
             ? window.sessionStorage.getItem(GUESTBOOK_CACHE_KEY)
             : null;
         if (cachedRaw) {
@@ -89,7 +90,7 @@ const Guestbook = () => {
           : [];
         const t3 = performance.now();
         setGuestbookEntries(sortEntries(entries));
-        if (typeof window !== "undefined") {
+        if (SHOULD_USE_GUESTBOOK_CACHE && typeof window !== "undefined") {
           window.sessionStorage.setItem(
             GUESTBOOK_CACHE_KEY,
             JSON.stringify({ fetchedAt: Date.now(), entries })
@@ -156,9 +157,13 @@ const Guestbook = () => {
         typeof savedData.body === "string"
           ? JSON.parse(savedData.body)
           : savedData;
+      const savedEntry = parsedSavedData?.entry;
+      if (!savedEntry || typeof savedEntry !== "object") {
+        throw new Error("Save response was missing guestbook entry.");
+      }
       setGuestbookEntries((prevEntries) => {
-        const nextEntries = sortEntries([...prevEntries, parsedSavedData.entry]);
-        if (typeof window !== "undefined") {
+        const nextEntries = sortEntries([...prevEntries, savedEntry]);
+        if (SHOULD_USE_GUESTBOOK_CACHE && typeof window !== "undefined") {
           window.sessionStorage.setItem(
             GUESTBOOK_CACHE_KEY,
             JSON.stringify({ fetchedAt: Date.now(), entries: nextEntries })
