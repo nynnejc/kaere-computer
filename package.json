@@ -33,7 +33,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.23",
-    "eslint": "^10.0.0",
+    "eslint": "^9.39.0",
     "eslint-config-next": "^16.1.6",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.1.3",

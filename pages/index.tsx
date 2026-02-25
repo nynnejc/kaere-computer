@@ -91,24 +91,35 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
       return;
     }
 
-    const requestIdleCallbackFn =
-      typeof window !== "undefined"
-        ? (window as unknown as { requestIdleCallback?: (cb: () => void) => void })
-            .requestIdleCallback
-        : undefined;
+    const globalObject = globalThis as typeof globalThis & {
+      requestIdleCallback?: (cb: () => void) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
 
-    if (typeof requestIdleCallbackFn === "function") {
-      requestIdleCallbackFn(() => {
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let idleCallbackId: number | null = null;
+
+    if (typeof globalObject.requestIdleCallback === "function") {
+      idleCallbackId = globalObject.requestIdleCallback(() => {
         warmGuestbookCache();
       });
-      return;
+    } else {
+      timeoutId = setTimeout(() => {
+        warmGuestbookCache();
+      }, 500);
     }
 
-    const timeoutId = globalThis.setTimeout(() => {
-      warmGuestbookCache();
-    }, 500);
-
-    return () => globalThis.clearTimeout(timeoutId);
+    return () => {
+      if (
+        idleCallbackId !== null &&
+        typeof globalObject.cancelIdleCallback === "function"
+      ) {
+        globalObject.cancelIdleCallback(idleCallbackId);
+      }
+      if (timeoutId !== null) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, []);
 
   return (
