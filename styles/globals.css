@@ -17,8 +17,7 @@ body {
 
 @font-face {
   font-family: "Dauphine-Regular";
-  src: url("/fonts/Dauphine-Regular.woff2") format("woff2"),
-    url("/fonts/Dauphine-Regular.woff") format("woff");
+  src: url("/fonts/Dauphine-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
