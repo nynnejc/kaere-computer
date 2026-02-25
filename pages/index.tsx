@@ -6,6 +6,11 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Post from "../models/posts";
 
+const GUESTBOOK_API_ENDPOINT =
+  "https://82eikoh5ne.execute-api.us-east-1.amazonaws.com/prod/guestbook";
+const GUESTBOOK_CACHE_KEY = "guestbook_entries_cache_v1";
+const GUESTBOOK_CACHE_TTL_MS = 5 * 60 * 1000;
+
 export async function getStaticProps() {
   const files = fs.readdirSync(`${process.cwd()}/data/posts`);
   const posts: Array<Post> = files.map((fileName) => {
@@ -47,6 +52,57 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
     script.setAttribute("data-site", "https://newsletter.kaerecomputer.dk/");
     script.setAttribute("data-locale", "en");
     container.appendChild(script);
+  }, []);
+
+  useEffect(() => {
+    const warmGuestbookCache = async () => {
+      try {
+        const existingRaw = sessionStorage.getItem(GUESTBOOK_CACHE_KEY);
+        if (existingRaw) {
+          const existing = JSON.parse(existingRaw);
+          const isFresh =
+            typeof existing?.fetchedAt === "number" &&
+            Date.now() - existing.fetchedAt < GUESTBOOK_CACHE_TTL_MS &&
+            Array.isArray(existing?.entries);
+          if (isFresh) {
+            return;
+          }
+        }
+
+        const response = await fetch(GUESTBOOK_API_ENDPOINT);
+        if (!response.ok) {
+          return;
+        }
+
+        const data = await response.json();
+        const parsedBody =
+          typeof data.body === "string" ? JSON.parse(data.body) : data;
+        const entries = Array.isArray(parsedBody?.entries) ? parsedBody.entries : [];
+        sessionStorage.setItem(
+          GUESTBOOK_CACHE_KEY,
+          JSON.stringify({ fetchedAt: Date.now(), entries })
+        );
+      } catch {
+        // Prefetch failures should stay silent and never block index rendering.
+      }
+    };
+
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(() => {
+        warmGuestbookCache();
+      });
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      warmGuestbookCache();
+    }, 500);
+
+    return () => window.clearTimeout(timeoutId);
   }, []);
 
   return (

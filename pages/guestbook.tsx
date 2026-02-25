@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import ColorWheel from "../components/ColorWheel";
 import Navbar from "../components/Navbar";
 
 const API_ENDPOINT =
   "https://82eikoh5ne.execute-api.us-east-1.amazonaws.com/prod/guestbook";
+const GUESTBOOK_CACHE_KEY = "guestbook_entries_cache_v1";
+const GUESTBOOK_CACHE_TTL_MS = 5 * 60 * 1000;
 
 interface GuestbookEntry {
   id: string;
@@ -21,6 +23,8 @@ const Guestbook = () => {
   const [url, setUrl] = useState("");
   const [color, setColor] = useState("#FFFFFF");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoadingEntries, setIsLoadingEntries] = useState(true);
+  const hasFetchedEntriesRef = useRef(false);
 
   const sortEntries = (entries: GuestbookEntry[]) => {
     return [...entries].sort((a, b) => {
@@ -37,25 +41,87 @@ const Guestbook = () => {
   };
 
   useEffect(() => {
+    if (hasFetchedEntriesRef.current) {
+      return;
+    }
+    hasFetchedEntriesRef.current = true;
+
     const fetchEntries = async () => {
+      const t0 = performance.now();
+      setIsLoadingEntries(true);
+      const fetchUrl = API_ENDPOINT;
+
       try {
-        const response = await fetch(API_ENDPOINT);
+        const cachedRaw =
+          typeof window !== "undefined"
+            ? window.sessionStorage.getItem(GUESTBOOK_CACHE_KEY)
+            : null;
+        if (cachedRaw) {
+          const cached = JSON.parse(cachedRaw);
+          const isFresh =
+            typeof cached?.fetchedAt === "number" &&
+            Date.now() - cached.fetchedAt < GUESTBOOK_CACHE_TTL_MS &&
+            Array.isArray(cached?.entries);
+
+          if (isFresh) {
+            const cachedEntries: GuestbookEntry[] = cached.entries;
+            setGuestbookEntries(sortEntries(cachedEntries));
+            setIsLoadingEntries(false);
+            console.info("[guestbook] using prefetched cache", {
+              entryCount: cachedEntries.length,
+              cacheAgeMs: Date.now() - cached.fetchedAt,
+            });
+            return;
+          }
+        }
+
+        const response = await fetch(fetchUrl);
+        const t1 = performance.now();
         if (!response.ok) {
           throw new Error("Failed to fetch guestbook entries.");
         }
         const data = await response.json();
+        const t2 = performance.now();
         const parsedBody =
           typeof data.body === "string" ? JSON.parse(data.body) : data;
         const entries: GuestbookEntry[] = Array.isArray(parsedBody.entries)
           ? parsedBody.entries
           : [];
+        const t3 = performance.now();
         setGuestbookEntries(sortEntries(entries));
+        if (typeof window !== "undefined") {
+          window.sessionStorage.setItem(
+            GUESTBOOK_CACHE_KEY,
+            JSON.stringify({ fetchedAt: Date.now(), entries })
+          );
+        }
+        const t4 = performance.now();
+        console.info("[guestbook] load timings (ms)", {
+          endpoint: fetchUrl,
+          fetch: Math.round(t1 - t0),
+          parseJson: Math.round(t2 - t1),
+          normalize: Math.round(t3 - t2),
+          sortAndSetState: Math.round(t4 - t3),
+          total: Math.round(t4 - t0),
+          entryCount: entries.length,
+          responseSizeBytes: response.headers.get("content-length") ?? "unknown",
+        });
       } catch (error: any) {
         setErrorMessage("Failed to load guestbook entries.");
+      } finally {
+        setIsLoadingEntries(false);
       }
     };
     fetchEntries();
   }, []);
+
+  const sortedGuestbookEntries = useMemo(
+    () =>
+      [...guestbookEntries].sort(
+        (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      ),
+    [guestbookEntries]
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,9 +156,16 @@ const Guestbook = () => {
         typeof savedData.body === "string"
           ? JSON.parse(savedData.body)
           : savedData;
-      setGuestbookEntries((prevEntries) =>
-        sortEntries([...prevEntries, parsedSavedData.entry])
-      );
+      setGuestbookEntries((prevEntries) => {
+        const nextEntries = sortEntries([...prevEntries, parsedSavedData.entry]);
+        if (typeof window !== "undefined") {
+          window.sessionStorage.setItem(
+            GUESTBOOK_CACHE_KEY,
+            JSON.stringify({ fetchedAt: Date.now(), entries: nextEntries })
+          );
+        }
+        return nextEntries;
+      });
       setName("");
       setMessage("");
       setUrl("");
@@ -162,12 +235,9 @@ const Guestbook = () => {
               </form>
             </div>
             <div className="mt-4 lg:ml-20 mx-center">
-              {[...guestbookEntries]
-                .sort(
-                  (a, b) =>
-                    new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-                )
-                .map((entry) => (
+              {isLoadingEntries && <p>Loading entries...</p>}
+              {!isLoadingEntries &&
+                sortedGuestbookEntries.map((entry) => (
                   <li
                     key={entry.id}
                     className="mx-auto"
