@@ -1,0 +1,22 @@
+{
+  "CachePolicyConfig": {
+    "Name": "kaerecomputer-posts-cache-policy",
+    "Comment": "Aggressive caching for static blog post pages and assets.",
+    "DefaultTTL": 86400,
+    "MaxTTL": 31536000,
+    "MinTTL": 300,
+    "ParametersInCacheKeyAndForwardedToOrigin": {
+      "EnableAcceptEncodingGzip": true,
+      "EnableAcceptEncodingBrotli": true,
+      "HeadersConfig": {
+        "HeaderBehavior": "none"
+      },
+      "CookiesConfig": {
+        "CookieBehavior": "none"
+      },
+      "QueryStringsConfig": {
+        "QueryStringBehavior": "none"
+      }
+    }
+  }
+}
