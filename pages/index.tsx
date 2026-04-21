@@ -152,10 +152,11 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
           />
 
           <div className="mt-4 sm:ml-20">
-            <div className="font-bold">
+            <div className="font-bold flex items-baseline gap-4">
               <h3 className="text-base sm:text-lg md:text-2xl">
                 PREVIOUS ENTRIES
               </h3>
+              <a href="/rss.xml" className="font-mono text-xs underline decoration">RSS</a>
             </div>
             {posts
               .slice(0)
