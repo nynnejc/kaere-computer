@@ -60,14 +60,16 @@ const CuteComputer: React.FC = () => {
   }, [getRandomImage]);
 
   return (
-    <div onClick={handleClick}>
-      <img
-        src={currentImage || "/placeholder.svg"}
-        alt="Cute cartoon computer"
-        width={160}
-        height={160}
-      />
-    </div>
+    <a href="/index.html">
+      <div onClick={handleClick}>
+        <img
+          src={currentImage || "/placeholder.svg"}
+          alt="Cute cartoon computer"
+          width={160}
+          height={160}
+        />
+      </div>
+    </a>
   );
 };
 
