@@ -9,9 +9,7 @@ const RATE_LIMIT_TABLE_NAME = process.env.RATE_LIMIT_TABLE_NAME || "GuestbookRat
 const RATE_LIMIT_WINDOW_SECONDS = Number(process.env.RATE_LIMIT_WINDOW_SECONDS || "30");
 
 
-const generateId = () => {
-  return `${Date.now()}-${Math.floor(Math.random() * 1000)}`;
-};
+const { randomUUID } = require("crypto");
 
 const createResponse = (statusCode, body, extraHeaders = {}) => ({
   statusCode,
@@ -97,12 +95,20 @@ const saveEntry = async (event) => {
     const { name, message, url, color } = JSON.parse(event.body);
 
     if (!name || !message) {
-      console.error("Validation error: Name and message are required.");
       return createResponse(400, { message: "Name and message are required fields." });
+    }
+    if (name.length > 50) {
+      return createResponse(400, { message: "Name must be 50 characters or fewer." });
+    }
+    if (message.length > 500) {
+      return createResponse(400, { message: "Message must be 500 characters or fewer." });
+    }
+    if (color && !/^#[0-9a-fA-F]{6}$/.test(color)) {
+      return createResponse(400, { message: "Color must be a valid hex code." });
     }
 
     const entry = {
-      id: generateId(),
+      id: randomUUID(),
       name,
       message,
       url: url || "",
