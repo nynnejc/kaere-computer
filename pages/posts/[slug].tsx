@@ -26,19 +26,15 @@ const PostPage: NextPage<PostPageProps> = ({
   const renderNav = () => (
     <div className="mt-10 flex items-center justify-between">
       {nextPost ? (
-        <Link href={`/posts/${nextPost.slug}`} legacyBehavior>
-          <a className="inline-block bg-white border border-black px-3 py-1 text-sm">
-            Next post
-          </a>
+        <Link href={`/posts/${nextPost.slug}`} className="inline-block bg-white border border-black px-3 py-1 text-sm">
+          Next post
         </Link>
       ) : (
         <span />
       )}
       {prevPost ? (
-        <Link href={`/posts/${prevPost.slug}`} legacyBehavior>
-          <a className="inline-block bg-white border border-black px-3 py-1 text-sm">
-            Previous post
-          </a>
+        <Link href={`/posts/${prevPost.slug}`} className="inline-block bg-white border border-black px-3 py-1 text-sm">
+          Previous post
         </Link>
       ) : (
         <span />
@@ -55,16 +51,16 @@ const PostPage: NextPage<PostPageProps> = ({
       <main className="grow w-full px-4 lg:order-1 lg:px-0">
         <h1 className="mb-8 mt-4 text-6xl lg:ml-6">
           <a
-            href="/index.html"
+            href="/"
             className="!text-black !no-underline visited:!text-black hover:!text-black hover:!no-underline"
           >
             Kære Computer
           </a>
         </h1>
         <article>
-          <h4 className="custom-font-dauphine hover:text-red_kc text-3xl lg:ml-6">
+          <h2 className="custom-font-dauphine hover:text-red-kc text-3xl lg:ml-6">
             {frontmatter.title} — {frontmatter.date}
-          </h4>
+          </h2>
 
           <div className="w-full lg:ml-20 lg:w-3/5">
             <ReactMarkdown

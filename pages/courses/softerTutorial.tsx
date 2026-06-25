@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 
 export default function softerTutorial() {
   return (
-    <div className="flex flex-col sm:flex-row min-h-screen bg-pistacio_kc selection:bg-pink-300">
+    <div className="flex flex-col sm:flex-row min-h-screen bg-pistacio-kc selection:bg-pink-300">
       <div className="sm:order-2">
         <Navbar />
       </div>

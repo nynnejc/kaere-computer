@@ -16,7 +16,7 @@
       "Priority": 1,
       "Statement": {
         "RegexPatternSetReferenceStatement": {
-          "ARN": "REPLACE_WITH_YOUR_UA_ALLOWLIST_REGEX_PATTERN_SET_ARN",
+          "ARN": "arn:aws:wafv2:us-east-1:051103554105:regional/regexpatternset/kaerecomputer-allow-bot-ua/b2211cb3-9965-4491-8e53-bf1c149fe5a5",
           "FieldToMatch": {
             "SingleHeader": {
               "Name": "user-agent"
@@ -177,7 +177,7 @@
                   "NotStatement": {
                     "Statement": {
                       "RegexPatternSetReferenceStatement": {
-                        "ARN": "REPLACE_WITH_YOUR_UA_ALLOWLIST_REGEX_PATTERN_SET_ARN",
+                        "ARN": "arn:aws:wafv2:us-east-1:051103554105:regional/regexpatternset/kaerecomputer-bad-ua/d9a59422-cdbb-4529-83ca-60e025692c69",
                         "FieldToMatch": {
                           "SingleHeader": {
                             "Name": "user-agent"

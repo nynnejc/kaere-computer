@@ -131,16 +131,16 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
         <main className="mt-0 px-2 sm:px-0 sm:order-2 w-full">
           <h1 className="mb-8 mt-4 text-6xl lg:ml-6">
             <a
-              href="/index.html"
+              href="/"
               className="!text-black !no-underline visited:!text-black hover:!text-black hover:!no-underline"
             >
               Kære Computer
             </a>
           </h1>
 
-          <h4 className="font-sans text-base sm:text-lg md:text-xl lg:ml-6">
+          <p className="font-sans text-base sm:text-lg md:text-xl lg:ml-6">
             Infrequent newsletter about tech.
-          </h4>
+          </p>
 
           <div
             ref={signupRef}

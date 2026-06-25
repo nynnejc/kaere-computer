@@ -64,11 +64,11 @@ nav ul li:hover {
 
 @theme {
   --color-lilac-kc: #f2eaff;
-  --color-powder_kc: #fce3e3;
-  --color-pink_kc: #ffb2d9;
-  --color-yellow_kc: #f7f4c6;
-  --color-red_kc: #ff1a66;
-  --color-pistacio_kc: #f2ffea;
+  --color-powder-kc: #fce3e3;
+  --color-pink-kc: #ffb2d9;
+  --color-yellow-kc: #f7f4c6;
+  --color-red-kc: #ff1a66;
+  --color-pistacio-kc: #f2ffea;
   --color-violetblack: #06004f;
   --color-barbie: #ffa6d9;
 }

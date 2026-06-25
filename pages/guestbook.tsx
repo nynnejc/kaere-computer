@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ColorWheel from "../components/ColorWheel";
 import Navbar from "../components/Navbar";
 
@@ -116,14 +116,6 @@ const Guestbook = () => {
     fetchEntries();
   }, []);
 
-  const sortedGuestbookEntries = useMemo(
-    () =>
-      [...guestbookEntries].sort(
-        (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-      ),
-    [guestbookEntries]
-  );
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (
@@ -193,9 +185,9 @@ const Guestbook = () => {
       <div className="flex grow w-full">
         <main className="mt-0 px-4 sm:px-0 sm:order-2 w-full">
           <h1 className="mb-8 mt-4 text-6xl lg:ml-6">Guestbook</h1>
-          <h4 className="font-sans text-base sm:text-lg md:text-xl lg:ml-6">
+          <h2 className="font-sans text-base sm:text-lg md:text-xl lg:ml-6">
             Leave a message
-          </h4>
+          </h2>
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
           <div className="grid grid-cols-1 lg:grid-cols-2 text-lg ">
             <div className="mt-4 sm:mt-8 sm:ml-20">
@@ -242,7 +234,7 @@ const Guestbook = () => {
             <div className="mt-4 lg:ml-20 mx-center">
               {isLoadingEntries && <p>Loading entries...</p>}
               {!isLoadingEntries &&
-                sortedGuestbookEntries.map((entry) => (
+                guestbookEntries.map((entry) => (
                   <li
                     key={entry.id}
                     className="mx-auto"

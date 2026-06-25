@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 export default function About() {
   return (
-    <div className="flex flex-col sm:flex-row min-h-screen bg-yellow_kc selection:bg-pink_kc">
+    <div className="flex flex-col sm:flex-row min-h-screen bg-yellow-kc selection:bg-pink-kc">
       <div className="sm:order-2">
         <Navbar />
       </div>
@@ -18,7 +18,7 @@ export default function About() {
         <div className="ml-20 sm:w-3/5 mr-8">
           <div className="pt-4">
             <h3>Learn how to code</h3>
-            <div className="text-red_kc">
+            <div className="text-red-kc">
               <p>
                 <a
                   href="https://www.freecodecamp.org/"
@@ -107,7 +107,7 @@ export default function About() {
 
           <div className="pt-16">
             <h3>Creative Coding</h3>
-            <div className="text-red_kc">
+            <div className="text-red-kc">
               <p>
                 <a
                   href="https://happycoding.io/tutorials/p5js/"
@@ -167,7 +167,7 @@ export default function About() {
 
           <div className="pt-16">
             <h3>Articles</h3>
-            <div className="text-red_kc">
+            <div className="text-red-kc">
               <p>
                 <a
                   href="https://increment.com/"
@@ -200,7 +200,7 @@ export default function About() {
 
           <div className="pt-16">
             <h3>Books</h3>
-            <div className="text-red_kc">
+            <div className="text-red-kc">
               <p>
                 <a
                   href="https://www.charlespetzold.com/code/"
@@ -229,7 +229,7 @@ export default function About() {
 
           <div className="pt-16">
             <h3>Newsletters</h3>
-            <div className="text-red_kc">
+            <div className="text-red-kc">
               <p>
                 <a
                   href="https://coolmail.substack.com/"
@@ -293,7 +293,7 @@ export default function About() {
 
             <div className="pt-16">
               <h3>Podcasts</h3>
-              <div className="text-red_kc">
+              <div className="text-red-kc">
                 <p className="mb-40">
                   <a
                     href="https://www.ladybug.dev/"

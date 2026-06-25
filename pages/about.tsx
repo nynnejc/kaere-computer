@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 export default function About() {
   return (
-    <div className="flex flex-col sm:flex-row min-h-screen bg-powder_kc selection:bg-pink-300">
+    <div className="flex flex-col sm:flex-row min-h-screen bg-powder-kc selection:bg-pink-300">
       <div className="sm:order-2">
         <Navbar />
       </div>
@@ -23,14 +23,14 @@ export default function About() {
               href="mailto:nynnejc@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration font-mono text-red_kc"
+              className="underline decoration font-mono text-red-kc"
             >
               email
             </a>{" "}
             me. I have a{" "}
             <a
               href="./"
-              className="underline decoration font-mono text-red_kc"
+              className="underline decoration font-mono text-red-kc"
             >
               newsletter
             </a>
@@ -39,7 +39,7 @@ export default function About() {
               href="https://github.com/nynnejc"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration font-mono text-red_kc"
+              className="underline decoration font-mono text-red-kc"
             >
               Github
             </a>{" "}
@@ -48,7 +48,7 @@ export default function About() {
               href="https://helvede.net/@nynne"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration font-mono text-red_kc"
+              className="underline decoration font-mono text-red-kc"
             >
               hell
             </a>
@@ -60,7 +60,7 @@ export default function About() {
               href="https://www.instagram.com/annekatrineraahede/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration font-mono text-red_kc"
+              className="underline decoration font-mono text-red-kc"
             >AK</a>.
           </p>
         </div>
